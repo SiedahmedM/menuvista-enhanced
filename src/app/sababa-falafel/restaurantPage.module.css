@@ -242,35 +242,6 @@
     color: #c1522e;
   }
   
-  /* Hide old menu layout */
-  .menuItems {
-    display: none;
-  }
-  
-  .menuItem {
-    display: none;
-  }
-  
-  .menuItemImage {
-    display: none;
-  }
-  
-  .menuItemDetails {
-    display: none;
-  }
-  
-  .menuItemName {
-    display: none;
-  }
-  
-  .menuItemDescription {
-    display: none;
-  }
-  
-  .menuItemPrice {
-    display: none;
-  }
-  
   .footer {
     display: flex;
     justify-content: space-between;

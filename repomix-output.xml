@@ -1,0 +1,1680 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+4. Repository files, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+<additional_info>
+
+</additional_info>
+
+</file_summary>
+
+<directory_structure>
+src/
+  app/
+    aleppo-kitchen/
+      page.js
+      restaurantPage.module.css
+    sababa-falafel/
+      page.js
+      restaurantPage.module.css
+    globals.css
+    layout.js
+    page.js
+    page.module.css
+.gitignore
+eslint.config.mjs
+jsconfig.json
+next.config.mjs
+package.json
+postcss.config.mjs
+README.md
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="src/app/aleppo-kitchen/page.js">
+'use client';
+import { useState } from 'react';
+import styles from './restaurantPage.module.css';
+import Link from 'next/link';
+
+export default function AleppoKitchenPage() {
+  const [activeTab, setActiveTab] = useState('Lunch');
+  
+  return (
+    <div className={styles.container}>
+      {/* Hero image */}
+      <div className={styles.heroImage}>
+        <img 
+          src="/aleppo-kitchen.jpg"
+          alt="Aleppo Kitchen Restaurant" 
+          className={styles.coverImage}
+        />
+      </div>
+      
+      {/* Restaurant name */}
+      <h1 className={styles.restaurantName}>Aleppo Kitchen</h1>
+      
+      {/* Tags */}
+      <div className={styles.tagContainer}>
+        <span className={styles.tag}>Syrian</span>
+        <span className={styles.tag}>Mediterranean</span>
+        <span className={styles.tag}>Authentic</span>
+      </div>
+      
+      {/* Menu tabs */}
+      <div className={styles.menuTabs}>
+        <button 
+          className={`${styles.tabButton} ${activeTab === 'Lunch' ? styles.activeTab : ''}`}
+          onClick={() => setActiveTab('Lunch')}
+        >
+          Lunch
+        </button>
+        <button 
+          className={`${styles.tabButton} ${activeTab === 'Dinner' ? styles.activeTab : ''}`}
+          onClick={() => setActiveTab('Dinner')}
+        >
+          Dinner
+        </button>
+        <button 
+          className={`${styles.tabButton} ${activeTab === 'Drinks' ? styles.activeTab : ''}`}
+          onClick={() => setActiveTab('Drinks')}
+        >
+          Drinks
+        </button>
+      </div>
+      
+      {/* Action buttons */}
+      <div className={styles.actionButtons}>
+        <button className={styles.primaryButton}>Order Now</button>
+        <button className={styles.secondaryButton}>Reserve a Table</button>
+        <button className={styles.secondaryButton}>Call</button>
+      </div>
+      
+      {/* Special Banner */}
+      <div className={styles.specialBanner}>
+        <p>🍽️ Chef's special this week: Traditional Syrian Feast for Two - $45</p>
+      </div>
+      
+      {/* Menu content */}
+      <div className={styles.menuContent}>
+        <h2 className={styles.menuHeading}>{activeTab} Menu</h2>
+        
+        {activeTab === 'Lunch' && (
+          <div className={styles.menuGrid}>
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/muhammara.jpg" alt="Muhammara" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>Muhammara</h3>
+                <p className={styles.menuCardDescription}>Red pepper and walnut dip with pomegranate molasses</p>
+                <p className={styles.menuCardPrice}>$8</p>
+              </div>
+            </div>
+            
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/kibbeh.jpg" alt="Kibbeh" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>Kibbeh</h3>
+                <p className={styles.menuCardDescription}>Bulgur shells stuffed with spiced meat and pine nuts</p>
+                <p className={styles.menuCardPrice}>$12</p>
+              </div>
+            </div>
+            
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/mandi-rice.jpg" alt="Mandi Rice with Lamb" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>Mandi Rice with Lamb</h3>
+                <p className={styles.menuCardDescription}>Aromatic rice with tender lamb and spices</p>
+                <p className={styles.menuCardPrice}>$16</p>
+              </div>
+            </div>
+            
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/fattoush.jpg" alt="Fattoush Salad" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>Fattoush Salad</h3>
+                <p className={styles.menuCardDescription}>Fresh vegetables with sumac and toasted pita bread</p>
+                <p className={styles.menuCardPrice}>$10</p>
+              </div>
+            </div>
+          </div>
+        )}
+        
+        {activeTab === 'Dinner' && (
+          <div className={styles.menuGrid}>
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/kebab-platter.jpg" alt="Mixed Kebab Platter" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>Mixed Kebab Platter</h3>
+                <p className={styles.menuCardDescription}>Assortment of grilled meats with rice and grilled vegetables</p>
+                <p className={styles.menuCardPrice}>$24</p>
+              </div>
+            </div>
+            
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/mansaf.jpg" alt="Mansaf" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>Mansaf</h3>
+                <p className={styles.menuCardDescription}>Traditional lamb with rice and yogurt sauce</p>
+                <p className={styles.menuCardPrice}>$22</p>
+              </div>
+            </div>
+            
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/stuffed-eggplant.jpg" alt="Stuffed Eggplant" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>Stuffed Eggplant</h3>
+                <p className={styles.menuCardDescription}>Roasted eggplant stuffed with spiced rice and vegetables</p>
+                <p className={styles.menuCardPrice}>$18</p>
+              </div>
+            </div>
+            
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/freekeh-soup.jpg" alt="Freekeh Soup" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>Freekeh Soup</h3>
+                <p className={styles.menuCardDescription}>Smoky green wheat soup with chicken and aromatic spices</p>
+                <p className={styles.menuCardPrice}>$12</p>
+              </div>
+            </div>
+          </div>
+        )}
+        
+        {activeTab === 'Drinks' && (
+          <div className={styles.menuGrid}>
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/tamarind-juice.jpg" alt="Tamarind Juice" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>Tamarind Juice</h3>
+                <p className={styles.menuCardDescription}>Sweet and tangy traditional tamarind drink</p>
+                <p className={styles.menuCardPrice}>$4</p>
+              </div>
+            </div>
+            
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/jallab.jpg" alt="Jallab" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>Jallab</h3>
+                <p className={styles.menuCardDescription}>Date, grape molasses and rose water drink with pine nuts</p>
+                <p className={styles.menuCardPrice}>$5</p>
+              </div>
+            </div>
+            
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/arabic-coffee.jpg" alt="Arabic Coffee" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>Arabic Coffee</h3>
+                <p className={styles.menuCardDescription}>Cardamom infused coffee served in small cups</p>
+                <p className={styles.menuCardPrice}>$3</p>
+              </div>
+            </div>
+            
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/rosewater-lemonade.jpg" alt="Rosewater Lemonade" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>Rosewater Lemonade</h3>
+                <p className={styles.menuCardDescription}>Fresh lemonade with a hint of rosewater</p>
+                <p className={styles.menuCardPrice}>$4</p>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+      
+      {/* Footer */}
+      <div className={styles.footer}>
+        <div className={styles.socialIcons}>
+          <a href="#" className={styles.socialIcon}>f</a>
+          <a href="#" className={styles.socialIcon}>t</a>
+          <a href="#" className={styles.socialIcon}>i</a>
+        </div>
+        <div className={styles.hours}>Open 11:00 AM - 11:00 PM</div>
+      </div>
+      
+      <Link href="/" className={styles.backLink}>← Back to all restaurants</Link>
+    </div>
+  );
+}
+</file>
+
+<file path="src/app/aleppo-kitchen/restaurantPage.module.css">
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    background-color: #fdfcf9;
+    font-family: var(--font-geist-sans);
+  }
+  
+  .heroImage {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 2rem;
+    border-radius: 16px; /* Slightly more rounded */
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08); /* Subtle shadow for depth */
+  }
+  
+  .coverImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .restaurantName {
+    font-family: var(--font-playfair-display), serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 1rem;
+    text-align: center;
+    letter-spacing: -0.02em; /* More modern typography */
+  }
+  
+  .tagContainer {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .tag {
+    background-color: #f5f5f5;
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+    font-size: 0.9rem;
+    color: #333;
+    transition: all 0.2s ease; /* Smooth hover effect */
+  }
+  
+  .tag:hover {
+    background-color: #eee;
+    transform: translateY(-1px);
+  }
+  
+  .menuTabs {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 2rem;
+    position: sticky; /* Make tabs sticky as you scroll */
+    top: 0;
+    background-color: rgba(253, 252, 249, 0.95); /* Slightly transparent background */
+    z-index: 10;
+    padding: 1rem 0;
+    backdrop-filter: blur(8px); /* Modern blur effect for scrolling */
+  }
+  
+  .tabButton {
+    padding: 1rem 2rem;
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #666;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+  }
+  
+  .tabButton:hover {
+    color: #000;
+  }
+  
+  .activeTab {
+    color: #000;
+    font-weight: 600;
+  }
+  
+  .activeTab::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #7a3b2e; /* Match primary button color */
+    border-radius: 2px;
+  }
+  
+  .actionButtons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .primaryButton {
+    padding: 0.8rem 1.5rem;
+    background-color: #7a3b2e;
+    color: white;
+    border: none;
+    border-radius: 8px; /* More rounded */
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 6px rgba(122, 59, 46, 0.2); /* Subtle shadow */
+  }
+  
+  .primaryButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(122, 59, 46, 0.3);
+  }
+  
+  .secondaryButton {
+    padding: 0.8rem 1.5rem;
+    background-color: white;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 8px; /* More rounded */
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .secondaryButton:hover {
+    background-color: #f9f9f9;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  
+  .menuContent {
+    margin-bottom: 3rem;
+  }
+  
+  .menuHeading {
+    font-family: var(--font-playfair-display), serif;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+  
+  .menuHeading::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 3px;
+    background-color: #7a3b2e;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+  }
+  
+  /* Updated grid layout styles */
+  .menuGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .menuCard {
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px; /* Add some roundness */
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06); /* Subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .menuCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .menuImageContainer {
+    width: 100%;
+    padding-top: 75%; /* 4:3 aspect ratio */
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .menuCardImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .menuCard:hover .menuCardImage {
+    transform: scale(1.05); /* Subtle zoom on hover */
+  }
+  
+  .menuCardContent {
+    padding: 1rem;
+    background-color: white;
+  }
+  
+  .menuCardName {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin: 0 0 0.25rem;
+    color: #000;
+  }
+  
+  .menuCardDescription {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0 0 0.5rem;
+    line-height: 1.4;
+  }
+  
+  .menuCardPrice {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 0.5rem 0 0;
+    color: #7a3b2e; /* Match primary button color */
+  }
+  
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+    border-top: 1px solid #eee;
+    margin-top: 3rem;
+  }
+  
+  .socialIcons {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .socialIcon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.2s ease;
+  }
+  
+  .socialIcon:hover {
+    background-color: #7a3b2e;
+    color: white;
+    transform: translateY(-2px);
+  }
+  
+  .hours {
+    color: #666;
+  }
+  
+  .backLink {
+    display: inline-block;
+    margin: 2rem 0;
+    color: #666;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    padding: 0.5rem 0;
+  }
+  
+  .backLink:hover {
+    color: #7a3b2e;
+  }
+  
+  /* Add a nice highlight banner for specials or promotions */
+  .specialBanner {
+    background: linear-gradient(135deg, #7a3b2e, #9e5c4c);
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    margin: 2rem 0;
+    box-shadow: 0 3px 10px rgba(122, 59, 46, 0.2);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .menuGrid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .menuGrid {
+      grid-template-columns: 1fr;
+    }
+    
+    .actionButtons {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .primaryButton, .secondaryButton {
+      width: 100%;
+      max-width: 300px;
+      margin-bottom: 0.5rem;
+    }
+    
+    .menuTabs {
+      flex-wrap: wrap;
+    }
+    
+    .tabButton {
+      padding: 0.75rem 1.5rem;
+    }
+  }
+</file>
+
+<file path="src/app/sababa-falafel/page.js">
+'use client';
+import { useState } from 'react';
+import styles from './restaurantPage.module.css';
+import Link from 'next/link';
+
+export default function SababaFalafelPage() {
+  const [activeTab, setActiveTab] = useState('Lunch');
+  
+  return (
+    <div className={styles.container}>
+      {/* Hero image */}
+      <div className={styles.heroImage}>
+        <img 
+          src="/sababa-falafel.jpg"
+          alt="Sababa Falafel Restaurant" 
+          className={styles.coverImage}
+        />
+      </div>
+      
+      {/* Restaurant name */}
+      <h1 className={styles.restaurantName}>Sababa Falafel</h1>
+      
+      {/* Tags */}
+      <div className={styles.tagContainer}>
+        <span className={styles.tag}>Middle Eastern</span>
+        <span className={styles.tag}>Vegetarian</span>
+        <span className={styles.tag}>Family-Friendly</span>
+      </div>
+      
+      {/* Menu tabs */}
+      <div className={styles.menuTabs}>
+        <button 
+          className={`${styles.tabButton} ${activeTab === 'Lunch' ? styles.activeTab : ''}`}
+          onClick={() => setActiveTab('Lunch')}
+        >
+          Lunch
+        </button>
+        <button 
+          className={`${styles.tabButton} ${activeTab === 'Dinner' ? styles.activeTab : ''}`}
+          onClick={() => setActiveTab('Dinner')}
+        >
+          Dinner
+        </button>
+        <button 
+          className={`${styles.tabButton} ${activeTab === 'Drinks' ? styles.activeTab : ''}`}
+          onClick={() => setActiveTab('Drinks')}
+        >
+          Drinks
+        </button>
+      </div>
+      
+      {/* Action buttons */}
+      <div className={styles.actionButtons}>
+        <button className={styles.primaryButton}>Order Now</button>
+        <button className={styles.secondaryButton}>Reserve a Table</button>
+        <button className={styles.secondaryButton}>Call</button>
+      </div>
+      
+      {/* Special Banner */}
+      <div className={styles.specialBanner}>
+        <p>🍲 Weekly Special: Family Platter with 2 Sides - $30</p>
+      </div>
+      
+      {/* Menu content */}
+      <div className={styles.menuContent}>
+        <h2 className={styles.menuHeading}>{activeTab} Menu</h2>
+        
+        {activeTab === 'Lunch' && (
+          <div className={styles.menuGrid}>
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/falafel-bowl.avif" alt="Falafel Bowl" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>Falafel Bowl</h3>
+                <p className={styles.menuCardDescription}>Fresh falafel with hummus, tahini, and pita</p>
+                <p className={styles.menuCardPrice}>$12</p>
+              </div>
+            </div>
+            
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/hummus.avif" alt="Hummus" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>Hummus</h3>
+                <p className={styles.menuCardDescription}>Creamy chickpea dip with olive oil and pita</p>
+                <p className={styles.menuCardPrice}>$8</p>
+              </div>
+            </div>
+            
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/chicken-bowl.avif" alt="Chicken Bowl" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>Chicken Bowl</h3>
+                <p className={styles.menuCardDescription}>Marinated chicken with rice and salad</p>
+                <p className={styles.menuCardPrice}>$14</p>
+              </div>
+            </div>
+            
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/half-hummus-half-foul.avif" alt="Half Hummus Half Foul" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>Half Hummus Half Foul</h3>
+                <p className={styles.menuCardDescription}>A split plate of hummus and fava bean dip</p>
+                <p className={styles.menuCardPrice}>$10</p>
+              </div>
+            </div>
+            
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/falafel-on-jerusalem-bread.avif" alt="Falafel on Jerusalem Bread" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>Falafel on Jerusalem Bread</h3>
+                <p className={styles.menuCardDescription}>Falafel served on traditional Jerusalem bread</p>
+                <p className={styles.menuCardPrice}>$11</p>
+              </div>
+            </div>
+            
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/falafel-with-fried-veggies.avif" alt="Falafel with Fried Veggies" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>Falafel with Fried Veggies</h3>
+                <p className={styles.menuCardDescription}>Falafel served with seasoned fried vegetables</p>
+                <p className={styles.menuCardPrice}>$13</p>
+              </div>
+            </div>
+          </div>
+        )}
+        
+        {activeTab === 'Dinner' && (
+          <div className={styles.menuGrid}>
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/6-piece-falafel.avif" alt="6 Piece Falafel" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>6 Piece Falafel</h3>
+                <p className={styles.menuCardDescription}>Six freshly fried falafel balls with tahini sauce</p>
+                <p className={styles.menuCardPrice}>$8</p>
+              </div>
+            </div>
+            
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/family-pack.avif" alt="Family Pack" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>Family Pack</h3>
+                <p className={styles.menuCardDescription}>Assorted dishes perfect for sharing with family</p>
+                <p className={styles.menuCardPrice}>$32</p>
+              </div>
+            </div>
+            
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/fried-veggies-8oz.avif" alt="Fried Veggies 8oz" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>Fried Veggies 8oz</h3>
+                <p className={styles.menuCardDescription}>Seasonal vegetables lightly fried in olive oil</p>
+                <p className={styles.menuCardPrice}>$9</p>
+              </div>
+            </div>
+            
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/pita-chips.avif" alt="Pita Chips" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>Pita Chips</h3>
+                <p className={styles.menuCardDescription}>Crispy pita chips seasoned with herbs</p>
+                <p className={styles.menuCardPrice}>$5</p>
+              </div>
+            </div>
+            
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/seasoned-rice.avif" alt="Seasoned Rice" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>Seasoned Rice</h3>
+                <p className={styles.menuCardDescription}>Rice with Mediterranean spices and herbs</p>
+                <p className={styles.menuCardPrice}>$7</p>
+              </div>
+            </div>
+            
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/white-rice.avif" alt="White Rice" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>White Rice</h3>
+                <p className={styles.menuCardDescription}>Fluffy basmati rice with herbs</p>
+                <p className={styles.menuCardPrice}>$5</p>
+              </div>
+            </div>
+          </div>
+        )}
+        
+        {activeTab === 'Drinks' && (
+          <div className={styles.menuGrid}>
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/hibiscus-lemonade.avif" alt="Hibiscus Lemonade" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>Hibiscus Lemonade</h3>
+                <p className={styles.menuCardDescription}>Refreshing hibiscus-infused lemonade</p>
+                <p className={styles.menuCardPrice}>$4</p>
+              </div>
+            </div>
+            
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/hibuscus-and-hibusuc-with-lemonade.avif" alt="Hibiscus and Hibiscus with Lemonade" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>Hibiscus with Lemonade</h3>
+                <p className={styles.menuCardDescription}>Hibiscus tea mixed with fresh lemonade</p>
+                <p className={styles.menuCardPrice}>$5</p>
+              </div>
+            </div>
+            
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/baklava.avif" alt="Baklava" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>Baklava</h3>
+                <p className={styles.menuCardDescription}>Sweet pastry with layers of nuts and honey</p>
+                <p className={styles.menuCardPrice}>$6</p>
+              </div>
+            </div>
+            
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/baklava-2.avif" alt="Baklava Variant" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>Pistachio Baklava</h3>
+                <p className={styles.menuCardDescription}>Baklava with layers of pistachio</p>
+                <p className={styles.menuCardPrice}>$7</p>
+              </div>
+            </div>
+            
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/rice-pudding-2.avif" alt="Rice Pudding" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>Rice Pudding</h3>
+                <p className={styles.menuCardDescription}>Creamy rice pudding with cinnamon</p>
+                <p className={styles.menuCardPrice}>$5</p>
+              </div>
+            </div>
+            
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/peach-crumble.avif" alt="Peach Crumble" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>Peach Crumble</h3>
+                <p className={styles.menuCardDescription}>Sweet peach dessert with crumble topping</p>
+                <p className={styles.menuCardPrice}>$6</p>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+      
+      {/* Footer */}
+      <div className={styles.footer}>
+        <div className={styles.socialIcons}>
+          <a href="#" className={styles.socialIcon}>f</a>
+          <a href="#" className={styles.socialIcon}>t</a>
+          <a href="#" className={styles.socialIcon}>i</a>
+        </div>
+        <div className={styles.hours}>Open 11:00 AM - 10:00 PM</div>
+      </div>
+      
+      <Link href="/" className={styles.backLink}>← Back to all restaurants</Link>
+    </div>
+  );
+}
+</file>
+
+<file path="src/app/sababa-falafel/restaurantPage.module.css">
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    background-color: #fdfcf9;
+    font-family: var(--font-geist-sans);
+  }
+  
+  .heroImage {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 2rem;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  }
+  
+  .coverImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .restaurantName {
+    font-family: var(--font-playfair-display), serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 1rem;
+    text-align: center;
+    letter-spacing: -0.02em;
+  }
+  
+  .tagContainer {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .tag {
+    background-color: #f5f5f5;
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+    font-size: 0.9rem;
+    color: #333;
+    transition: all 0.2s ease;
+  }
+  
+  .tag:hover {
+    background-color: #eee;
+    transform: translateY(-1px);
+  }
+  
+  .menuTabs {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 2rem;
+    position: sticky;
+    top: 0;
+    background-color: rgba(253, 252, 249, 0.95);
+    z-index: 10;
+    padding: 1rem 0;
+    backdrop-filter: blur(8px);
+  }
+  
+  .tabButton {
+    padding: 1rem 2rem;
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #666;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+  }
+  
+  .tabButton:hover {
+    color: #000;
+  }
+  
+  .activeTab {
+    color: #000;
+    font-weight: 600;
+  }
+  
+  .activeTab::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #c1522e;
+    border-radius: 2px;
+  }
+  
+  .actionButtons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .primaryButton {
+    padding: 0.8rem 1.5rem;
+    background-color: #c1522e;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 6px rgba(193, 82, 46, 0.2);
+  }
+  
+  .primaryButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(193, 82, 46, 0.3);
+  }
+  
+  .secondaryButton {
+    padding: 0.8rem 1.5rem;
+    background-color: white;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .secondaryButton:hover {
+    background-color: #f9f9f9;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  
+  .specialBanner {
+    background: linear-gradient(135deg, #c1522e, #e67e22);
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    margin: 0 0 2rem 0;
+    box-shadow: 0 3px 10px rgba(193, 82, 46, 0.2);
+  }
+  
+  .menuContent {
+    margin-bottom: 3rem;
+  }
+  
+  .menuHeading {
+    font-family: var(--font-playfair-display), serif;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+  
+  .menuHeading::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 3px;
+    background-color: #c1522e;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+  }
+  
+  /* Grid layout styles */
+  .menuGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .menuCard {
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .menuCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .menuImageContainer {
+    width: 100%;
+    padding-top: 75%;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .menuCardImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .menuCard:hover .menuCardImage {
+    transform: scale(1.05);
+  }
+  
+  .menuCardContent {
+    padding: 1rem;
+    background-color: white;
+  }
+  
+  .menuCardName {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin: 0 0 0.25rem;
+    color: #000;
+  }
+  
+  .menuCardDescription {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0 0 0.5rem;
+    line-height: 1.4;
+  }
+  
+  .menuCardPrice {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 0.5rem 0 0;
+    color: #c1522e;
+  }
+  
+  /* Hide old menu layout */
+  .menuItems {
+    display: none;
+  }
+  
+  .menuItem {
+    display: none;
+  }
+  
+  .menuItemImage {
+    display: none;
+  }
+  
+  .menuItemDetails {
+    display: none;
+  }
+  
+  .menuItemName {
+    display: none;
+  }
+  
+  .menuItemDescription {
+    display: none;
+  }
+  
+  .menuItemPrice {
+    display: none;
+  }
+  
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+    border-top: 1px solid #eee;
+    margin-top: 3rem;
+  }
+  
+  .socialIcons {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .socialIcon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.2s ease;
+  }
+  
+  .socialIcon:hover {
+    background-color: #c1522e;
+    color: white;
+    transform: translateY(-2px);
+  }
+  
+  .hours {
+    color: #666;
+  }
+  
+  .backLink {
+    display: inline-block;
+    margin: 2rem 0;
+    color: #666;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    padding: 0.5rem 0;
+  }
+  
+  .backLink:hover {
+    color: #c1522e;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .menuGrid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .menuGrid {
+      grid-template-columns: 1fr;
+    }
+    
+    .actionButtons {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .primaryButton, .secondaryButton {
+      width: 100%;
+      max-width: 300px;
+      margin-bottom: 0.5rem;
+    }
+    
+    .menuTabs {
+      flex-wrap: wrap;
+    }
+    
+    .tabButton {
+      padding: 0.75rem 1.5rem;
+    }
+  }
+</file>
+
+<file path="src/app/page.module.css">
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #fdfcf9
+    
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .header h1 {
+    font-family: var(--font-playfair-display), serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.5rem;
+    color: #000000;
+    display: block;
+    text-align: center;
+  }
+  
+  .header p {
+    font-family: var(--font-playfair-display), serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: #000000;
+    line-height: 1.2;
+    max-width: 800px;
+    margin: 1rem auto 2rem;
+    text-align: center;
+  }
+
+  .logo {
+    width: 150px;
+    margin-bottom: 1rem;
+  }
+  
+  .searchContainer {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 600px;
+    margin: 2rem auto;
+  }
+  
+  .searchInput {
+    flex: 1;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    color: #2b2b2b;
+  }
+  
+  .searchButton {
+    padding: 1rem 2rem;
+    background: #000;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .restaurantGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  
+  .restaurantCard {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+  }
+  
+  .restaurantCard:hover {
+    transform: translateY(-4px);
+  }
+  
+  .restaurantCard img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .restaurantCard h3 {
+    padding: 1rem;
+    margin: 0;
+    text-align: center;
+    color: #2b2b2b;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  /* .logoContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    gap: 0.75rem;
+  }
+  
+  .logoIcon {
+    width: 40px;
+    height: 40px;
+  } */
+</file>
+
+<file path=".gitignore">
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+</file>
+
+<file path="eslint.config.mjs">
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+import { FlatCompat } from "@eslint/eslintrc";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const compat = new FlatCompat({
+  baseDirectory: __dirname,
+});
+
+const eslintConfig = [...compat.extends("next/core-web-vitals")];
+
+export default eslintConfig;
+</file>
+
+<file path="jsconfig.json">
+{
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
+}
+</file>
+
+<file path="package.json">
+{
+  "name": "menuvista",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "next": "15.3.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "tailwindcss": "^4",
+    "eslint": "^9",
+    "eslint-config-next": "15.3.2",
+    "@eslint/eslintrc": "^3"
+  }
+}
+</file>
+
+<file path="postcss.config.mjs">
+const config = {
+  plugins: ["@tailwindcss/postcss"],
+};
+
+export default config;
+</file>
+
+<file path="README.md">
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+## Getting Started
+
+First, run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+</file>
+
+<file path="src/app/globals.css">
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+} */
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #fdfcf9;
+}
+</file>
+
+<file path="src/app/layout.js">
+import { Geist, Geist_Mono } from "next/font/google";
+import "./globals.css";
+import { Playfair_Display } from "next/font/google";
+
+const playfairDisplay = Playfair_Display({
+  variable: "--font-playfair-display",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+});
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+export const metadata = {
+  title: "Create Next App",
+  description: "Generated by create next app",
+};
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${playfairDisplay.variable} antialiased`}
+      >
+        {children}
+      </body>
+    </html>
+  );
+}
+</file>
+
+<file path="src/app/page.js">
+'use client';
+import styles from './page.module.css';
+import Image from 'next/image';
+import Link from 'next/link';
+
+export default function Home() {
+  return (
+    <div className={styles.container}>
+      <header className={styles.header}>
+        <div className={styles.logoContainer}>
+          <Image 
+            src="/MenuVistaLogo.svg"
+            alt="MenuVista Logo"
+            width={40}
+            height={40}
+            className={styles.logoIcon}
+          />
+          <h1>MenuVista</h1>
+        </div>
+        <p>Discover Menus Visually</p>
+      </header>
+
+      <div className={styles.searchContainer}>
+        <input
+          type="text"
+          placeholder="Find your restaurant"
+          className={styles.searchInput}
+        />
+        <button className={styles.searchButton}>Search</button>
+      </div>
+
+      <div className={styles.restaurantGrid}>
+        <Link href="/sababa-falafel" className={styles.restaurantCard}>
+          <img
+            src="/sababa-falafel.jpg"
+            alt="Sababa Falafel"
+            className={styles.restaurantImage}
+          />
+          <h3>Sababa Falafel</h3>
+        </Link>
+
+        <Link href="/aleppo-kitchen" className={styles.restaurantCard}>
+          <img
+            src="/aleppo-kitchen.jpg"
+            alt="Aleppo Kitchen"
+            className={styles.restaurantImage}
+          />
+          <h3>Aleppo Kitchen</h3>
+        </Link>
+      </div>
+    </div>
+  );
+}
+</file>
+
+<file path="next.config.mjs">
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+    images: {
+        dangerouslyAllowSVG: true,
+        contentDispositionType: 'attachment',
+        contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+      },
+};
+
+export default nextConfig;
+</file>
+
+</files>

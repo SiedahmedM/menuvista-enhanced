@@ -9,10 +9,10 @@ export default function Home() {
       <header className={styles.header}>
         <div className={styles.logoContainer}>
           <Image 
-            src="/MenuVistaLogo.svg"
+            src="/MenuVistaLogo.jpg"
             alt="MenuVista Logo"
-            width={40}
-            height={40}
+            width={120}
+            height={120}
             className={styles.logoIcon}
           />
           <h1>MenuVista</h1>

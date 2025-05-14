@@ -69,7 +69,7 @@ export default function SababaFalafelPage() {
           <div className={styles.menuGrid}>
             <div className={styles.menuCard}>
               <div className={styles.menuImageContainer}>
-                <img src="/falafel-bowl.avif" alt="Falafel Bowl" className={styles.menuCardImage} />
+                <img src="/falafel-bowl.jpg" alt="Falafel Bowl" className={styles.menuCardImage} />
               </div>
               <div className={styles.menuCardContent}>
                 <h3 className={styles.menuCardName}>Falafel Bowl</h3>
@@ -80,7 +80,7 @@ export default function SababaFalafelPage() {
             
             <div className={styles.menuCard}>
               <div className={styles.menuImageContainer}>
-                <img src="/hummus.avif" alt="Hummus" className={styles.menuCardImage} />
+                <img src="/hummus.jpg" alt="Hummus" className={styles.menuCardImage} />
               </div>
               <div className={styles.menuCardContent}>
                 <h3 className={styles.menuCardName}>Hummus</h3>
@@ -91,7 +91,7 @@ export default function SababaFalafelPage() {
             
             <div className={styles.menuCard}>
               <div className={styles.menuImageContainer}>
-                <img src="/chicken-bowl.avif" alt="Chicken Bowl" className={styles.menuCardImage} />
+                <img src="/chicken-bowl.jpg" alt="Chicken Bowl" className={styles.menuCardImage} />
               </div>
               <div className={styles.menuCardContent}>
                 <h3 className={styles.menuCardName}>Chicken Bowl</h3>
@@ -102,34 +102,12 @@ export default function SababaFalafelPage() {
             
             <div className={styles.menuCard}>
               <div className={styles.menuImageContainer}>
-                <img src="/half-hummus-half-foul.avif" alt="Half Hummus Half Foul" className={styles.menuCardImage} />
+                <img src="/half-hummus-half-foul.jpg" alt="Half Hummus Half Foul" className={styles.menuCardImage} />
               </div>
               <div className={styles.menuCardContent}>
                 <h3 className={styles.menuCardName}>Half Hummus Half Foul</h3>
                 <p className={styles.menuCardDescription}>A split plate of hummus and fava bean dip</p>
                 <p className={styles.menuCardPrice}>$10</p>
-              </div>
-            </div>
-            
-            <div className={styles.menuCard}>
-              <div className={styles.menuImageContainer}>
-                <img src="/falafel-on-jerusalem-bread.avif" alt="Falafel on Jerusalem Bread" className={styles.menuCardImage} />
-              </div>
-              <div className={styles.menuCardContent}>
-                <h3 className={styles.menuCardName}>Falafel on Jerusalem Bread</h3>
-                <p className={styles.menuCardDescription}>Falafel served on traditional Jerusalem bread</p>
-                <p className={styles.menuCardPrice}>$11</p>
-              </div>
-            </div>
-            
-            <div className={styles.menuCard}>
-              <div className={styles.menuImageContainer}>
-                <img src="/falafel-with-fried-veggies.avif" alt="Falafel with Fried Veggies" className={styles.menuCardImage} />
-              </div>
-              <div className={styles.menuCardContent}>
-                <h3 className={styles.menuCardName}>Falafel with Fried Veggies</h3>
-                <p className={styles.menuCardDescription}>Falafel served with seasoned fried vegetables</p>
-                <p className={styles.menuCardPrice}>$13</p>
               </div>
             </div>
           </div>
@@ -139,7 +117,7 @@ export default function SababaFalafelPage() {
           <div className={styles.menuGrid}>
             <div className={styles.menuCard}>
               <div className={styles.menuImageContainer}>
-                <img src="/6-piece-falafel.avif" alt="6 Piece Falafel" className={styles.menuCardImage} />
+                <img src="/6-piece-falafel.jpg" alt="6 Piece Falafel" className={styles.menuCardImage} />
               </div>
               <div className={styles.menuCardContent}>
                 <h3 className={styles.menuCardName}>6 Piece Falafel</h3>
@@ -150,7 +128,7 @@ export default function SababaFalafelPage() {
             
             <div className={styles.menuCard}>
               <div className={styles.menuImageContainer}>
-                <img src="/family-pack.avif" alt="Family Pack" className={styles.menuCardImage} />
+                <img src="/family-pack.jpg" alt="Family Pack" className={styles.menuCardImage} />
               </div>
               <div className={styles.menuCardContent}>
                 <h3 className={styles.menuCardName}>Family Pack</h3>
@@ -161,10 +139,10 @@ export default function SababaFalafelPage() {
             
             <div className={styles.menuCard}>
               <div className={styles.menuImageContainer}>
-                <img src="/fried-veggies-8oz.avif" alt="Fried Veggies 8oz" className={styles.menuCardImage} />
+                <img src="/premium-family-pack.jpg" alt="Premium Family Pack" className={styles.menuCardImage} />
               </div>
               <div className={styles.menuCardContent}>
-                <h3 className={styles.menuCardName}>Fried Veggies 8oz</h3>
+                <h3 className={styles.menuCardName}>Premium Family Pack</h3>
                 <p className={styles.menuCardDescription}>Seasonal vegetables lightly fried in olive oil</p>
                 <p className={styles.menuCardPrice}>$9</p>
               </div>
@@ -172,33 +150,11 @@ export default function SababaFalafelPage() {
             
             <div className={styles.menuCard}>
               <div className={styles.menuImageContainer}>
-                <img src="/pita-chips.avif" alt="Pita Chips" className={styles.menuCardImage} />
+                <img src="/pita-chips.jpg" alt="Pita Chips" className={styles.menuCardImage} />
               </div>
               <div className={styles.menuCardContent}>
                 <h3 className={styles.menuCardName}>Pita Chips</h3>
                 <p className={styles.menuCardDescription}>Crispy pita chips seasoned with herbs</p>
-                <p className={styles.menuCardPrice}>$5</p>
-              </div>
-            </div>
-            
-            <div className={styles.menuCard}>
-              <div className={styles.menuImageContainer}>
-                <img src="/seasoned-rice.avif" alt="Seasoned Rice" className={styles.menuCardImage} />
-              </div>
-              <div className={styles.menuCardContent}>
-                <h3 className={styles.menuCardName}>Seasoned Rice</h3>
-                <p className={styles.menuCardDescription}>Rice with Mediterranean spices and herbs</p>
-                <p className={styles.menuCardPrice}>$7</p>
-              </div>
-            </div>
-            
-            <div className={styles.menuCard}>
-              <div className={styles.menuImageContainer}>
-                <img src="/white-rice.avif" alt="White Rice" className={styles.menuCardImage} />
-              </div>
-              <div className={styles.menuCardContent}>
-                <h3 className={styles.menuCardName}>White Rice</h3>
-                <p className={styles.menuCardDescription}>Fluffy basmati rice with herbs</p>
                 <p className={styles.menuCardPrice}>$5</p>
               </div>
             </div>
@@ -209,7 +165,7 @@ export default function SababaFalafelPage() {
           <div className={styles.menuGrid}>
             <div className={styles.menuCard}>
               <div className={styles.menuImageContainer}>
-                <img src="/hibiscus-lemonade.avif" alt="Hibiscus Lemonade" className={styles.menuCardImage} />
+                <img src="/hibiscus-lemonade.jpg" alt="Hibiscus Lemonade" className={styles.menuCardImage} />
               </div>
               <div className={styles.menuCardContent}>
                 <h3 className={styles.menuCardName}>Hibiscus Lemonade</h3>
@@ -220,55 +176,11 @@ export default function SababaFalafelPage() {
             
             <div className={styles.menuCard}>
               <div className={styles.menuImageContainer}>
-                <img src="/hibuscus-and-hibusuc-with-lemonade.avif" alt="Hibiscus and Hibiscus with Lemonade" className={styles.menuCardImage} />
-              </div>
-              <div className={styles.menuCardContent}>
-                <h3 className={styles.menuCardName}>Hibiscus with Lemonade</h3>
-                <p className={styles.menuCardDescription}>Hibiscus tea mixed with fresh lemonade</p>
-                <p className={styles.menuCardPrice}>$5</p>
-              </div>
-            </div>
-            
-            <div className={styles.menuCard}>
-              <div className={styles.menuImageContainer}>
-                <img src="/baklava.avif" alt="Baklava" className={styles.menuCardImage} />
+                <img src="/baklava.jpg" alt="Baklava" className={styles.menuCardImage} />
               </div>
               <div className={styles.menuCardContent}>
                 <h3 className={styles.menuCardName}>Baklava</h3>
                 <p className={styles.menuCardDescription}>Sweet pastry with layers of nuts and honey</p>
-                <p className={styles.menuCardPrice}>$6</p>
-              </div>
-            </div>
-            
-            <div className={styles.menuCard}>
-              <div className={styles.menuImageContainer}>
-                <img src="/baklava-2.avif" alt="Baklava Variant" className={styles.menuCardImage} />
-              </div>
-              <div className={styles.menuCardContent}>
-                <h3 className={styles.menuCardName}>Pistachio Baklava</h3>
-                <p className={styles.menuCardDescription}>Baklava with layers of pistachio</p>
-                <p className={styles.menuCardPrice}>$7</p>
-              </div>
-            </div>
-            
-            <div className={styles.menuCard}>
-              <div className={styles.menuImageContainer}>
-                <img src="/rice-pudding-2.avif" alt="Rice Pudding" className={styles.menuCardImage} />
-              </div>
-              <div className={styles.menuCardContent}>
-                <h3 className={styles.menuCardName}>Rice Pudding</h3>
-                <p className={styles.menuCardDescription}>Creamy rice pudding with cinnamon</p>
-                <p className={styles.menuCardPrice}>$5</p>
-              </div>
-            </div>
-            
-            <div className={styles.menuCard}>
-              <div className={styles.menuImageContainer}>
-                <img src="/peach-crumble.avif" alt="Peach Crumble" className={styles.menuCardImage} />
-              </div>
-              <div className={styles.menuCardContent}>
-                <h3 className={styles.menuCardName}>Peach Crumble</h3>
-                <p className={styles.menuCardDescription}>Sweet peach dessert with crumble topping</p>
                 <p className={styles.menuCardPrice}>$6</p>
               </div>
             </div>

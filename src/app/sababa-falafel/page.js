@@ -95,7 +95,7 @@ export default function SababaFalafelPage() {
               <div className={styles.menuCardContent}>
                 <h3 className={styles.menuCardName}>Hummus</h3>
                 <p className={styles.menuCardDescription}>Creamy chickpea dip with olive oil and pita</p>
-                <p className={styles.menuCardPrice}>$8</p>
+                <p className={styles.menuCardPrice}>$16</p>
               </div>
             </div>
             

@@ -8,6 +8,24 @@ export default function SababaFalafelPage() {
   
   return (
     <div className={styles.container}>
+      {/* Fixed Buttons */}
+      <div className={styles.fixedButtonsContainer}>
+        <a 
+          href="https://restaurant-website.com" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className={styles.fixedOrderButton}
+        >
+          Order Now
+        </a>
+        <button 
+          className={styles.fixedCallButton}
+          onClick={() => window.open('tel:+1-555-123-4567')}
+        >
+          Call
+        </button>
+      </div>
+
       {/* Hero image */}
       <div className={styles.heroImage}>
         <img 
@@ -16,7 +34,6 @@ export default function SababaFalafelPage() {
           className={styles.coverImage}
         />
       </div>
-      
       {/* Restaurant name */}
       <h1 className={styles.restaurantName}>Sababa Falafel</h1>
       
@@ -47,13 +64,6 @@ export default function SababaFalafelPage() {
         >
           Drinks
         </button>
-      </div>
-      
-      {/* Action buttons */}
-      <div className={styles.actionButtons}>
-        <button className={styles.primaryButton}>Order Now</button>
-        <button className={styles.secondaryButton}>Reserve a Table</button>
-        <button className={styles.secondaryButton}>Call</button>
       </div>
       
       {/* Special Banner */}

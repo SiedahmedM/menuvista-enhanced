@@ -8,6 +8,24 @@ export default function AleppoKitchenPage() {
   
   return (
     <div className={styles.container}>
+      {/* Fixed Buttons */}
+      <div className={styles.fixedButtonsContainer}>
+        <a 
+          href="https://aleppo-kitchen.com" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className={styles.fixedOrderButton}
+        >
+          Order Now
+        </a>
+        <button 
+          className={styles.fixedCallButton}
+          onClick={() => window.open('tel:+1-555-123-4567')}
+        >
+          Call
+        </button>
+      </div>
+
       {/* Hero image */}
       <div className={styles.heroImage}>
         <img 
@@ -47,13 +65,6 @@ export default function AleppoKitchenPage() {
         >
           Drinks
         </button>
-      </div>
-      
-      {/* Action buttons */}
-      <div className={styles.actionButtons}>
-        <button className={styles.primaryButton}>Order Now</button>
-        <button className={styles.secondaryButton}>Reserve a Table</button>
-        <button className={styles.secondaryButton}>Call</button>
       </div>
       
       {/* Special Banner */}

@@ -5,6 +5,51 @@
     background-color: #fdfcf9;
     font-family: var(--font-geist-sans);
   }
+
+  .fixedButtonsContainer {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .fixedOrderButton {
+    padding: 0.8rem 1.5rem;
+    background-color: #7a3b2e; /* Aleppo Kitchen's color */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    text-decoration: none;
+  }
+  
+  .fixedOrderButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  }
+  
+  .fixedCallButton {
+    padding: 0.8rem 1.5rem;
+    background-color: white;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  
+  .fixedCallButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    background-color: #f9f9f9;
+  }
   
   .heroImage {
     width: 100%;

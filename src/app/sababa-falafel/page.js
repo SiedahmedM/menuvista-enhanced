@@ -11,7 +11,7 @@ export default function SababaFalafelPage() {
       {/* Fixed Buttons */}
       <div className={styles.fixedButtonsContainer}>
         <a 
-          href="https://restaurant-website.com" 
+          href="https://www.sababafalafelshop.com" 
           target="_blank" 
           rel="noopener noreferrer"
           className={styles.fixedOrderButton}
@@ -20,7 +20,7 @@ export default function SababaFalafelPage() {
         </a>
         <button 
           className={styles.fixedCallButton}
-          onClick={() => window.open('tel:+1-555-123-4567')}
+          onClick={() => window.open('tel:+1-714-242-8977')}
         >
           Call
         </button>
@@ -47,6 +47,12 @@ export default function SababaFalafelPage() {
       {/* Menu tabs */}
       <div className={styles.menuTabs}>
         <button 
+          className={`${styles.tabButton} ${activeTab === 'Appetizers' ? styles.activeTab : ''}`}
+          onClick={() => setActiveTab('Appetizers')}
+        >
+          Appetizers & Sides
+        </button>
+        <button 
           className={`${styles.tabButton} ${activeTab === 'Lunch' ? styles.activeTab : ''}`}
           onClick={() => setActiveTab('Lunch')}
         >
@@ -62,19 +68,19 @@ export default function SababaFalafelPage() {
           className={`${styles.tabButton} ${activeTab === 'Drinks' ? styles.activeTab : ''}`}
           onClick={() => setActiveTab('Drinks')}
         >
-          Drinks
+          Drinks & Desserts
         </button>
-      </div>
-      
-      {/* Special Banner */}
-      <div className={styles.specialBanner}>
-        <p>🍲 Weekly Special: Family Platter with 2 Sides - $30</p>
       </div>
       
       {/* Menu content */}
       <div className={styles.menuContent}>
-        <h2 className={styles.menuHeading}>{activeTab} Menu</h2>
+        <h2 className={styles.menuHeading}>
+          {activeTab === 'Drinks' ? 'Drinks & Desserts' : 
+           activeTab === 'Appetizers' ? 'Appetizers & Sides' : 
+           activeTab} Menu
+        </h2>
         
+        {/* LUNCH MENU */}
         {activeTab === 'Lunch' && (
           <div className={styles.menuGrid}>
             <div className={styles.menuCard}>
@@ -90,6 +96,77 @@ export default function SababaFalafelPage() {
             
             <div className={styles.menuCard}>
               <div className={styles.menuImageContainer}>
+                <img src="/chicken-bowl.jpg" alt="Chicken Bowl" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>Chicken Bowl</h3>
+                <p className={styles.menuCardDescription}>Marinated chicken with rice and salad</p>
+                <p className={styles.menuCardPrice}>$14</p>
+              </div>
+            </div>
+
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/falafel-on-jerusalem-bread.jpg" alt="Falafel on Jerusalem Bread" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>Falafel on Jerusalem Bread</h3>
+                <p className={styles.menuCardDescription}>Crispy falafel in fresh bread with tahini and vegetables</p>
+                <p className={styles.menuCardPrice}>$14</p>
+              </div>
+            </div>
+
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/falafel-with-fried-veggies.jpg" alt="Falafel With Fried Veggies" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>Falafel With Fried Veggies</h3>
+                <p className={styles.menuCardDescription}>Golden falafel in pita with fried vegetables and tahini sauce</p>
+                <p className={styles.menuCardPrice}>$15</p>
+              </div>
+            </div>
+
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/fire-bowl.jpg" alt="Fire Bowl" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>Fire Bowl</h3>
+                <p className={styles.menuCardDescription}>Spicy beef over yellow rice with fresh vegetables and tahini</p>
+                <p className={styles.menuCardPrice}>$17</p>
+              </div>
+            </div>
+
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/ribeye-bowl.jpg" alt="Ribeye Bowl" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>Ribeye Bowl</h3>
+                <p className={styles.menuCardDescription}>Tender ribeye strips over yellow rice with fresh vegetables and tahini</p>
+                <p className={styles.menuCardPrice}>$16</p>
+              </div>
+            </div>
+
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/ribeye-pita.jpg" alt="Ribeye Pita" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>Ribeye Pita</h3>
+                <p className={styles.menuCardDescription}>Juicy ribeye in soft pita with fresh vegetables and tahini sauce</p>
+                <p className={styles.menuCardPrice}>$15</p>
+              </div>
+            </div>
+          </div>
+        )}
+        
+        {/* APPETIZERS & SIDES MENU */}
+        {activeTab === 'Appetizers' && (
+          <div className={styles.menuGrid}>
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
                 <img src="/hummus.jpg" alt="Hummus" className={styles.menuCardImage} />
               </div>
               <div className={styles.menuCardContent}>
@@ -101,12 +178,45 @@ export default function SababaFalafelPage() {
             
             <div className={styles.menuCard}>
               <div className={styles.menuImageContainer}>
-                <img src="/chicken-bowl.jpg" alt="Chicken Bowl" className={styles.menuCardImage} />
+                <img src="/fettah-with-ribeye.jpg" alt="Fettah With Ribeye" className={styles.menuCardImage} />
               </div>
               <div className={styles.menuCardContent}>
-                <h3 className={styles.menuCardName}>Chicken Bowl</h3>
-                <p className={styles.menuCardDescription}>Marinated chicken with rice and salad</p>
-                <p className={styles.menuCardPrice}>$14</p>
+                <h3 className={styles.menuCardName}>Fettah With Ribeye</h3>
+                <p className={styles.menuCardDescription}>Creamy hummus topped with tender ribeye and toasted pine nuts</p>
+                <p className={styles.menuCardPrice}>$18</p>
+              </div>
+            </div>
+
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/fettah.jpg" alt="Fettah" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>Fettah</h3>
+                <p className={styles.menuCardDescription}>Traditional hummus topped with pine nuts and fresh herbs</p>
+                <p className={styles.menuCardPrice}>$16</p>
+              </div>
+            </div>
+
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/french-fries.jpg" alt="French Fries" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>French Fries</h3>
+                <p className={styles.menuCardDescription}>Crispy golden fries served with ketchup and garlic sauce</p>
+                <p className={styles.menuCardPrice}>$6</p>
+              </div>
+            </div>
+
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/fried-veggies-8oz.jpg" alt="Fried Veggies 8oz" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>Fried Veggies 8oz</h3>
+                <p className={styles.menuCardDescription}>Crispy cauliflower with fried potatoes and roasted eggplant</p>
+                <p className={styles.menuCardPrice}>$9</p>
               </div>
             </div>
             
@@ -120,11 +230,7 @@ export default function SababaFalafelPage() {
                 <p className={styles.menuCardPrice}>$10</p>
               </div>
             </div>
-          </div>
-        )}
-        
-        {activeTab === 'Dinner' && (
-          <div className={styles.menuGrid}>
+
             <div className={styles.menuCard}>
               <div className={styles.menuImageContainer}>
                 <img src="/6-piece-falafel.jpg" alt="6 Piece Falafel" className={styles.menuCardImage} />
@@ -136,6 +242,22 @@ export default function SababaFalafelPage() {
               </div>
             </div>
             
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/pita-chips.jpg" alt="Pita Chips" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>                                                                                                   
+                <h3 className={styles.menuCardName}>Pita Chips</h3>
+                <p className={styles.menuCardDescription}>Crispy pita chips seasoned with herbs</p>
+                <p className={styles.menuCardPrice}>$5</p>
+              </div>
+            </div>
+          </div>
+        )}
+        
+        {/* DINNER MENU */}
+        {activeTab === 'Dinner' && (
+          <div className={styles.menuGrid}>            
             <div className={styles.menuCard}>
               <div className={styles.menuImageContainer}>
                 <img src="/family-pack.jpg" alt="Family Pack" className={styles.menuCardImage} />
@@ -154,23 +276,35 @@ export default function SababaFalafelPage() {
               <div className={styles.menuCardContent}>
                 <h3 className={styles.menuCardName}>Premium Family Pack</h3>
                 <p className={styles.menuCardDescription}>Seasonal vegetables lightly fried in olive oil</p>
-                <p className={styles.menuCardPrice}>$9</p>
+                <p className={styles.menuCardPrice}>$38</p>
               </div>
             </div>
             
             <div className={styles.menuCard}>
               <div className={styles.menuImageContainer}>
-                <img src="/pita-chips.jpg" alt="Pita Chips" className={styles.menuCardImage} />
+                <img src="/falafel-bowl.jpg" alt="Falafel Bowl" className={styles.menuCardImage} />
               </div>
               <div className={styles.menuCardContent}>
-                <h3 className={styles.menuCardName}>Pita Chips</h3>
-                <p className={styles.menuCardDescription}>Crispy pita chips seasoned with herbs</p>
-                <p className={styles.menuCardPrice}>$5</p>
+                <h3 className={styles.menuCardName}>Falafel Bowl</h3>
+                <p className={styles.menuCardDescription}>Fresh falafel with hummus, tahini, and pita</p>
+                <p className={styles.menuCardPrice}>$12</p>
+              </div>
+            </div>
+            
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/ribeye-bowl.jpg" alt="Ribeye Bowl" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>Ribeye Bowl</h3>
+                <p className={styles.menuCardDescription}>Tender ribeye strips over yellow rice with fresh vegetables and tahini</p>
+                <p className={styles.menuCardPrice}>$16</p>
               </div>
             </div>
           </div>
         )}
         
+        {/* DRINKS & DESSERTS MENU */}
         {activeTab === 'Drinks' && (
           <div className={styles.menuGrid}>
             <div className={styles.menuCard}>
@@ -192,6 +326,28 @@ export default function SababaFalafelPage() {
                 <h3 className={styles.menuCardName}>Baklava</h3>
                 <p className={styles.menuCardDescription}>Sweet pastry with layers of nuts and honey</p>
                 <p className={styles.menuCardPrice}>$6</p>
+              </div>
+            </div>
+
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/peach-crumble.jpg" alt="Peach Crumble" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>Peach Crumble</h3>
+                <p className={styles.menuCardDescription}>Sweet peach dessert with a golden buttery crumble topping</p>
+                <p className={styles.menuCardPrice}>$8</p>
+              </div>
+            </div>
+
+            <div className={styles.menuCard}>
+              <div className={styles.menuImageContainer}>
+                <img src="/rice-pudding.jpg" alt="Rice Pudding" className={styles.menuCardImage} />
+              </div>
+              <div className={styles.menuCardContent}>
+                <h3 className={styles.menuCardName}>Rice Pudding</h3>
+                <p className={styles.menuCardDescription}>Creamy rice pudding with cinnamon and a hint of vanilla</p>
+                <p className={styles.menuCardPrice}>$7</p>
               </div>
             </div>
           </div>

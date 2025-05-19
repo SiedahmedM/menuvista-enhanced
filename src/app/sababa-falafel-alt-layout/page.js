@@ -1,10 +1,10 @@
 'use client';
 import { useState, useEffect } from 'react';
-import styles from './restaurantPage.module.css';
+import styles from './altLayout.module.css';
 import Link from 'next/link';
 import MenuVistaAdvancedTracking from '../analytics/advancedTracking';
 
-export default function SababaFalafelPage() {
+export default function SababaFalafelAltLayout() {
   const [activeTab, setActiveTab] = useState('Lunch');
   const [selectedItem, setSelectedItem] = useState(null);
   const [language, setLanguage] = useState('en'); // Default language is English
@@ -13,7 +13,7 @@ export default function SababaFalafelPage() {
   useEffect(() => {
     // Initialize analytics with restaurant ID
     console.log('Initializing analytics once');
-    MenuVistaAdvancedTracking.init('sababa-falafel');
+    MenuVistaAdvancedTracking.init('sababa-falafel-alt');
     
     // Track language selection in analytics
     if (language !== 'en') {
@@ -96,9 +96,8 @@ export default function SababaFalafelPage() {
       tags: ['Middle Eastern', 'Vegetarian', 'Family-Friendly'],
       hours: 'Open 11:00 AM - 10:00 PM',
       backLink: '← Back to all restaurants',
-      viewDashboard: 'View Analytics Dashboard',
-      viewAltLayout: 'View Alternative Layout',
-      layoutInfo: 'Original Layout (3 items per row)'
+      viewOriginalLayout: 'View Original Layout',
+      layoutInfo: 'Alternate Layout (2 items per row)'
     },
     ar: {
       restaurantName: 'صبابا فلافل',
@@ -114,9 +113,8 @@ export default function SababaFalafelPage() {
       tags: ['شرق أوسطي', 'نباتي', 'مناسب للعائلة'],
       hours: 'مفتوح ١١:٠٠ ص - ١٠:٠٠ م',
       backLink: '← العودة إلى جميع المطاعم',
-      viewDashboard: 'عرض لوحة التحليلات',
-      viewAltLayout: 'عرض التخطيط البديل',
-      layoutInfo: 'التخطيط الأصلي (٣ عناصر في كل صف)'
+      viewOriginalLayout: 'عرض التخطيط الأصلي',
+      layoutInfo: 'تخطيط بديل (عنصران في كل صف)'
     }
   };
 
@@ -175,15 +173,6 @@ export default function SababaFalafelPage() {
       descriptionAr: 'شرائح لحم ريب آي طرية على أرز أصفر مع خضروات طازجة وطحينة',
       price: '$16',
       image: '/ribeye-bowl.jpg'
-    },
-    {
-      id: 'ribeye-pita',
-      name: 'Ribeye Pita',
-      description: 'Juicy ribeye in soft pita with fresh vegetables and tahini sauce',
-      nameAr: 'ريب آي بيتا',
-      descriptionAr: 'لحم ريب آي عصير في خبز بيتا ناعم مع خضروات طازجة وصلصة طحينة',
-      price: '$15',
-      image: '/ribeye-pita.jpg'
     }
   ];
 
@@ -241,24 +230,6 @@ export default function SababaFalafelPage() {
       descriptionAr: 'طبق مقسم من الحمص والفول المدمس',
       price: '$10',
       image: '/half-hummus-half-foul.jpg'
-    },
-    {
-      id: '6-piece-falafel',
-      name: '6 Piece Falafel',
-      description: 'Six freshly fried falafel balls with tahini sauce',
-      nameAr: '٦ قطع فلافل',
-      descriptionAr: 'ست كرات فلافل مقلية طازجة مع صلصة طحينة',
-      price: '$8',
-      image: '/6-piece-falafel.jpg'
-    },
-    {
-      id: 'pita-chips',
-      name: 'Pita Chips',
-      description: 'Crispy pita chips seasoned with herbs',
-      nameAr: 'رقائق بيتا',
-      descriptionAr: 'رقائق بيتا مقرمشة متبلة بالأعشاب',
-      price: '$5',
-      image: '/pita-chips.jpg'
     }
   ];
 
@@ -414,19 +385,19 @@ export default function SababaFalafelPage() {
       
       {/* Restaurant name */}
       <h1 className={styles.restaurantName}>{translations[language].restaurantName}</h1>
-
+      
       {/* Layout info */}
       <div style={{ textAlign: 'center', margin: '0.5rem 0 1rem', color: '#666' }}>
         {translations[language].layoutInfo}
       </div>
 
-      {/* View Alternative Layout Button */}
+      {/* View Original Layout Button */}
       <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
         <Link 
-          href="/sababa-falafel-alt-layout" 
-          className={styles.viewOptionsButton || "inline-block px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700"}
+          href="/sababa-falafel" 
+          className={styles.viewOptionsButton}
         >
-          {translations[language].viewAltLayout}
+          {translations[language].viewOriginalLayout}
         </Link>
       </div>
       
@@ -473,7 +444,7 @@ export default function SababaFalafelPage() {
            translations[language].tabs[activeTab]} {translations[language].menuTitle}
         </h2>
         
-        {/* Menu Grid - using the data objects */}
+        {/* Menu Grid - using the data objects - 2 per row */}
         <div className={styles.menuGrid}>
           {getCurrentItems().map(item => {
             // Get the correct item data based on language
@@ -510,15 +481,6 @@ export default function SababaFalafelPage() {
           <a href="#" className={styles.socialIcon}>i</a>
         </div>
         <div className={styles.hours}>{translations[language].hours}</div>
-      </div>
-
-      <div className="mt-4 mb-8">
-        <Link 
-          href={`/dashboard?restaurant=sababa-falafel`} 
-          className={styles.dashboardLink || "text-blue-600 hover:underline"}
-        >
-          {translations[language].viewDashboard}
-        </Link>
       </div>
       
       <Link href="/" className={styles.backLink}>{translations[language].backLink}</Link>

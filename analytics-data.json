@@ -60074,6 +60074,756 @@
       "timeSpent": 440753,
       "timestamp": "2025-05-19T18:01:11.461Z",
       "storedAt": "2025-05-19T18:01:11.544Z"
+    },
+    {
+      "eventType": "session_end",
+      "sessionId": "mv_ag67872drdbcj2ja1mlmfd_1747677230708",
+      "restaurantId": "sababa-falafel",
+      "duration": 590521,
+      "viewSequence": [],
+      "timestamp": "2025-05-19T18:03:41.229Z",
+      "storedAt": "2025-05-19T18:03:42.147Z"
+    },
+    {
+      "eventType": "session_start",
+      "sessionId": "mv_hau8ifnbgobbww97h8eg3j_1747677822435",
+      "restaurantId": "sababa-falafel",
+      "deviceInfo": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.2 Safari/605.1.15",
+        "screenWidth": 1920,
+        "screenHeight": 1000,
+        "isMobile": false
+      },
+      "timestamp": "2025-05-19T18:03:42.435Z",
+      "storedAt": "2025-05-19T18:03:42.445Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_hau8ifnbgobbww97h8eg3j_1747677822435",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 30002,
+      "timestamp": "2025-05-19T18:04:12.437Z",
+      "storedAt": "2025-05-19T18:04:12.468Z"
+    },
+    {
+      "eventType": "page_exit",
+      "sessionId": "mv_hau8ifnbgobbww97h8eg3j_1747677822435",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 41282,
+      "timestamp": "2025-05-19T18:04:23.717Z",
+      "storedAt": "2025-05-19T18:04:23.737Z"
+    },
+    {
+      "eventType": "session_end",
+      "sessionId": "mv_hau8ifnbgobbww97h8eg3j_1747677822435",
+      "restaurantId": "sababa-falafel",
+      "duration": 402604,
+      "viewSequence": [],
+      "timestamp": "2025-05-19T18:10:25.039Z",
+      "storedAt": "2025-05-19T18:10:25.554Z"
+    },
+    {
+      "eventType": "advanced_session_end",
+      "sessionId": "mv_hau8ifnbgobbww97h8eg3j_1747677822435",
+      "restaurantId": "sababa-falafel",
+      "duration": 402604,
+      "viewSequence": [],
+      "mousePositions": [
+        {
+          "x": 16,
+          "y": 56,
+          "timestamp": "2025-05-19T18:03:43.005Z"
+        },
+        {
+          "x": 3,
+          "y": 91,
+          "timestamp": "2025-05-19T18:03:43.510Z"
+        },
+        {
+          "x": 2,
+          "y": 96,
+          "timestamp": "2025-05-19T18:03:44.018Z"
+        },
+        {
+          "x": 2,
+          "y": 96,
+          "timestamp": "2025-05-19T18:03:44.570Z"
+        },
+        {
+          "x": 3,
+          "y": 93,
+          "timestamp": "2025-05-19T18:03:45.085Z"
+        },
+        {
+          "x": 6,
+          "y": 87,
+          "timestamp": "2025-05-19T18:03:45.817Z"
+        },
+        {
+          "x": 8,
+          "y": 86,
+          "timestamp": "2025-05-19T18:03:46.941Z"
+        },
+        {
+          "x": 4,
+          "y": 93,
+          "timestamp": "2025-05-19T18:03:47.444Z"
+        },
+        {
+          "x": 4,
+          "y": 91,
+          "timestamp": "2025-05-19T18:04:05.287Z"
+        },
+        {
+          "x": 1,
+          "y": 88,
+          "timestamp": "2025-05-19T18:04:05.799Z"
+        },
+        {
+          "x": 4,
+          "y": 90,
+          "timestamp": "2025-05-19T18:04:06.398Z"
+        },
+        {
+          "x": 3,
+          "y": 80,
+          "timestamp": "2025-05-19T18:04:06.905Z"
+        },
+        {
+          "x": 20,
+          "y": 5,
+          "timestamp": "2025-05-19T18:04:08.620Z"
+        },
+        {
+          "x": 17,
+          "y": 20,
+          "timestamp": "2025-05-19T18:04:09.133Z"
+        },
+        {
+          "x": 8,
+          "y": 7,
+          "timestamp": "2025-05-19T18:04:09.639Z"
+        },
+        {
+          "x": 5,
+          "y": 4,
+          "timestamp": "2025-05-19T18:04:10.679Z"
+        },
+        {
+          "x": 20,
+          "y": 40,
+          "timestamp": "2025-05-19T18:04:11.812Z"
+        },
+        {
+          "x": 20,
+          "y": 39,
+          "timestamp": "2025-05-19T18:04:14.609Z"
+        },
+        {
+          "x": 21,
+          "y": 44,
+          "timestamp": "2025-05-19T18:04:16.977Z"
+        },
+        {
+          "x": 40,
+          "y": 40,
+          "timestamp": "2025-05-19T18:04:17.483Z"
+        },
+        {
+          "x": 41,
+          "y": 39,
+          "timestamp": "2025-05-19T18:04:17.993Z"
+        },
+        {
+          "x": 40,
+          "y": 47,
+          "timestamp": "2025-05-19T18:04:18.498Z"
+        },
+        {
+          "x": 39,
+          "y": 54,
+          "timestamp": "2025-05-19T18:04:19.002Z"
+        },
+        {
+          "x": 38,
+          "y": 43,
+          "timestamp": "2025-05-19T18:04:19.510Z"
+        },
+        {
+          "x": 5,
+          "y": 100,
+          "timestamp": "2025-05-19T18:10:22.715Z"
+        }
+      ],
+      "hoverData": {},
+      "scrollDepth": 0,
+      "viewportData": {
+        "width": 1920,
+        "height": 1000,
+        "devicePixelRatio": 1,
+        "isMobile": false
+      },
+      "timestamp": "2025-05-19T18:10:25.039Z",
+      "storedAt": "2025-05-19T18:10:25.560Z"
+    },
+    {
+      "eventType": "session_start",
+      "sessionId": "mv_qpksn4bqtw9jhma9pkreup_1747678227640",
+      "restaurantId": "sababa-falafel",
+      "deviceInfo": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.2 Safari/605.1.15",
+        "screenWidth": 1920,
+        "screenHeight": 1000,
+        "isMobile": false
+      },
+      "timestamp": "2025-05-19T18:10:27.640Z",
+      "storedAt": "2025-05-19T18:10:27.648Z"
+    },
+    {
+      "eventType": "scroll_depth",
+      "sessionId": "mv_qpksn4bqtw9jhma9pkreup_1747678227640",
+      "restaurantId": "sababa-falafel",
+      "depth": 100,
+      "timestamp": "2025-05-19T18:10:30.856Z",
+      "storedAt": "2025-05-19T18:10:30.876Z"
+    },
+    {
+      "eventType": "scroll_depth",
+      "sessionId": "mv_qpksn4bqtw9jhma9pkreup_1747678227640",
+      "restaurantId": "sababa-falafel",
+      "depth": 100,
+      "timestamp": "2025-05-19T18:10:30.856Z",
+      "storedAt": "2025-05-19T18:10:30.894Z"
+    },
+    {
+      "eventType": "session_start",
+      "sessionId": "mv_4cteskzzj73205ttk1gm9sj_1747678232814",
+      "restaurantId": "sababa-falafel-alt",
+      "deviceInfo": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.2 Safari/605.1.15",
+        "screenWidth": 1920,
+        "screenHeight": 1000,
+        "isMobile": false
+      },
+      "timestamp": "2025-05-19T18:10:32.814Z",
+      "storedAt": "2025-05-19T18:10:32.823Z"
+    },
+    {
+      "eventType": "scroll_depth",
+      "sessionId": "mv_4cteskzzj73205ttk1gm9sj_1747678232814",
+      "restaurantId": "sababa-falafel-alt",
+      "depth": 100,
+      "timestamp": "2025-05-19T18:10:34.683Z",
+      "storedAt": "2025-05-19T18:10:34.701Z"
+    },
+    {
+      "eventType": "scroll_depth",
+      "sessionId": "mv_4cteskzzj73205ttk1gm9sj_1747678232814",
+      "restaurantId": "sababa-falafel-alt",
+      "depth": 100,
+      "timestamp": "2025-05-19T18:10:34.684Z",
+      "storedAt": "2025-05-19T18:10:34.720Z"
+    },
+    {
+      "eventType": "scroll_depth",
+      "sessionId": "mv_4cteskzzj73205ttk1gm9sj_1747678232814",
+      "restaurantId": "sababa-falafel-alt",
+      "depth": 100,
+      "timestamp": "2025-05-19T18:10:34.684Z",
+      "storedAt": "2025-05-19T18:10:34.730Z"
+    },
+    {
+      "eventType": "scroll_depth",
+      "sessionId": "mv_4cteskzzj73205ttk1gm9sj_1747678232814",
+      "restaurantId": "sababa-falafel-alt",
+      "depth": 100,
+      "timestamp": "2025-05-19T18:10:34.684Z",
+      "storedAt": "2025-05-19T18:10:34.738Z"
+    },
+    {
+      "eventType": "scroll_depth",
+      "sessionId": "mv_4cteskzzj73205ttk1gm9sj_1747678232814",
+      "restaurantId": "sababa-falafel-alt",
+      "depth": 100,
+      "timestamp": "2025-05-19T18:10:38.511Z",
+      "storedAt": "2025-05-19T18:10:38.528Z"
+    },
+    {
+      "eventType": "scroll_depth",
+      "sessionId": "mv_4cteskzzj73205ttk1gm9sj_1747678232814",
+      "restaurantId": "sababa-falafel-alt",
+      "depth": 100,
+      "timestamp": "2025-05-19T18:10:38.511Z",
+      "storedAt": "2025-05-19T18:10:38.548Z"
+    },
+    {
+      "eventType": "scroll_depth",
+      "sessionId": "mv_4cteskzzj73205ttk1gm9sj_1747678232814",
+      "restaurantId": "sababa-falafel-alt",
+      "depth": 100,
+      "timestamp": "2025-05-19T18:10:38.511Z",
+      "storedAt": "2025-05-19T18:10:38.558Z"
+    },
+    {
+      "eventType": "scroll_depth",
+      "sessionId": "mv_4cteskzzj73205ttk1gm9sj_1747678232814",
+      "restaurantId": "sababa-falafel-alt",
+      "depth": 100,
+      "timestamp": "2025-05-19T18:10:38.512Z",
+      "storedAt": "2025-05-19T18:10:38.566Z"
+    },
+    {
+      "eventType": "session_start",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "deviceInfo": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.2 Safari/605.1.15",
+        "screenWidth": 1920,
+        "screenHeight": 1000,
+        "isMobile": false
+      },
+      "timestamp": "2025-05-19T18:10:39.928Z",
+      "storedAt": "2025-05-19T18:10:39.939Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 17714,
+      "timestamp": "2025-05-19T18:10:57.642Z",
+      "storedAt": "2025-05-19T18:10:57.671Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 17715,
+      "timestamp": "2025-05-19T18:10:57.643Z",
+      "storedAt": "2025-05-19T18:10:57.690Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 22887,
+      "timestamp": "2025-05-19T18:11:02.815Z",
+      "storedAt": "2025-05-19T18:11:02.836Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 22888,
+      "timestamp": "2025-05-19T18:11:02.816Z",
+      "storedAt": "2025-05-19T18:11:02.854Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 30002,
+      "timestamp": "2025-05-19T18:11:09.930Z",
+      "storedAt": "2025-05-19T18:11:09.954Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 30003,
+      "timestamp": "2025-05-19T18:11:09.931Z",
+      "storedAt": "2025-05-19T18:11:09.974Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 31783,
+      "timestamp": "2025-05-19T18:11:11.711Z",
+      "storedAt": "2025-05-19T18:11:11.732Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 31784,
+      "timestamp": "2025-05-19T18:11:11.712Z",
+      "storedAt": "2025-05-19T18:11:11.745Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 47715,
+      "timestamp": "2025-05-19T18:11:27.643Z",
+      "storedAt": "2025-05-19T18:11:27.663Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 47716,
+      "timestamp": "2025-05-19T18:11:27.644Z",
+      "storedAt": "2025-05-19T18:11:27.680Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 52888,
+      "timestamp": "2025-05-19T18:11:32.816Z",
+      "storedAt": "2025-05-19T18:11:32.839Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 52888,
+      "timestamp": "2025-05-19T18:11:32.816Z",
+      "storedAt": "2025-05-19T18:11:32.846Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 60003,
+      "timestamp": "2025-05-19T18:11:39.931Z",
+      "storedAt": "2025-05-19T18:11:39.951Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 60004,
+      "timestamp": "2025-05-19T18:11:39.932Z",
+      "storedAt": "2025-05-19T18:11:39.967Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 61784,
+      "timestamp": "2025-05-19T18:11:41.712Z",
+      "storedAt": "2025-05-19T18:11:41.730Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 61785,
+      "timestamp": "2025-05-19T18:11:41.713Z",
+      "storedAt": "2025-05-19T18:11:41.744Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 77717,
+      "timestamp": "2025-05-19T18:11:57.645Z",
+      "storedAt": "2025-05-19T18:11:57.665Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 77718,
+      "timestamp": "2025-05-19T18:11:57.646Z",
+      "storedAt": "2025-05-19T18:11:57.680Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 82889,
+      "timestamp": "2025-05-19T18:12:02.817Z",
+      "storedAt": "2025-05-19T18:12:02.841Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 82890,
+      "timestamp": "2025-05-19T18:12:02.818Z",
+      "storedAt": "2025-05-19T18:12:02.855Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 90004,
+      "timestamp": "2025-05-19T18:12:09.932Z",
+      "storedAt": "2025-05-19T18:12:09.953Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 90006,
+      "timestamp": "2025-05-19T18:12:09.934Z",
+      "storedAt": "2025-05-19T18:12:09.972Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 91786,
+      "timestamp": "2025-05-19T18:12:11.714Z",
+      "storedAt": "2025-05-19T18:12:11.731Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 91787,
+      "timestamp": "2025-05-19T18:12:11.715Z",
+      "storedAt": "2025-05-19T18:12:11.747Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 107718,
+      "timestamp": "2025-05-19T18:12:27.646Z",
+      "storedAt": "2025-05-19T18:12:27.671Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 107719,
+      "timestamp": "2025-05-19T18:12:27.647Z",
+      "storedAt": "2025-05-19T18:12:27.687Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 112891,
+      "timestamp": "2025-05-19T18:12:32.819Z",
+      "storedAt": "2025-05-19T18:12:32.829Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 112892,
+      "timestamp": "2025-05-19T18:12:32.820Z",
+      "storedAt": "2025-05-19T18:12:32.838Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 120006,
+      "timestamp": "2025-05-19T18:12:39.934Z",
+      "storedAt": "2025-05-19T18:12:39.946Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 120006,
+      "timestamp": "2025-05-19T18:12:39.934Z",
+      "storedAt": "2025-05-19T18:12:39.963Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 121787,
+      "timestamp": "2025-05-19T18:12:41.715Z",
+      "storedAt": "2025-05-19T18:12:41.734Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 121788,
+      "timestamp": "2025-05-19T18:12:41.716Z",
+      "storedAt": "2025-05-19T18:12:41.750Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 137720,
+      "timestamp": "2025-05-19T18:12:57.648Z",
+      "storedAt": "2025-05-19T18:12:57.667Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 137721,
+      "timestamp": "2025-05-19T18:12:57.649Z",
+      "storedAt": "2025-05-19T18:12:57.688Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 142892,
+      "timestamp": "2025-05-19T18:13:02.820Z",
+      "storedAt": "2025-05-19T18:13:02.842Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 142893,
+      "timestamp": "2025-05-19T18:13:02.821Z",
+      "storedAt": "2025-05-19T18:13:02.860Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 150007,
+      "timestamp": "2025-05-19T18:13:09.935Z",
+      "storedAt": "2025-05-19T18:13:09.957Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 150008,
+      "timestamp": "2025-05-19T18:13:09.936Z",
+      "storedAt": "2025-05-19T18:13:09.976Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 151788,
+      "timestamp": "2025-05-19T18:13:11.716Z",
+      "storedAt": "2025-05-19T18:13:11.734Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 151789,
+      "timestamp": "2025-05-19T18:13:11.717Z",
+      "storedAt": "2025-05-19T18:13:11.750Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 167721,
+      "timestamp": "2025-05-19T18:13:27.649Z",
+      "storedAt": "2025-05-19T18:13:27.675Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 167722,
+      "timestamp": "2025-05-19T18:13:27.650Z",
+      "storedAt": "2025-05-19T18:13:27.693Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 172894,
+      "timestamp": "2025-05-19T18:13:32.822Z",
+      "storedAt": "2025-05-19T18:13:32.842Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 172894,
+      "timestamp": "2025-05-19T18:13:32.822Z",
+      "storedAt": "2025-05-19T18:13:32.859Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 180008,
+      "timestamp": "2025-05-19T18:13:39.936Z",
+      "storedAt": "2025-05-19T18:13:39.962Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 180009,
+      "timestamp": "2025-05-19T18:13:39.937Z",
+      "storedAt": "2025-05-19T18:13:39.979Z"
+    },
+    {
+      "eventType": "page_exit",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 180717,
+      "timestamp": "2025-05-19T18:13:40.645Z",
+      "storedAt": "2025-05-19T18:13:40.657Z"
+    },
+    {
+      "eventType": "page_exit",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 180718,
+      "timestamp": "2025-05-19T18:13:40.646Z",
+      "storedAt": "2025-05-19T18:13:40.667Z"
+    },
+    {
+      "eventType": "page_exit",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 180718,
+      "timestamp": "2025-05-19T18:13:40.646Z",
+      "storedAt": "2025-05-19T18:13:40.678Z"
+    },
+    {
+      "eventType": "page_exit",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 180718,
+      "timestamp": "2025-05-19T18:13:40.646Z",
+      "storedAt": "2025-05-19T18:13:40.698Z"
+    },
+    {
+      "eventType": "page_exit",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 180718,
+      "timestamp": "2025-05-19T18:13:40.646Z",
+      "storedAt": "2025-05-19T18:13:40.708Z"
+    },
+    {
+      "eventType": "page_exit",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 180718,
+      "timestamp": "2025-05-19T18:13:40.646Z",
+      "storedAt": "2025-05-19T18:13:40.715Z"
+    },
+    {
+      "eventType": "page_exit",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 180718,
+      "timestamp": "2025-05-19T18:13:40.646Z",
+      "storedAt": "2025-05-19T18:13:40.723Z"
+    },
+    {
+      "eventType": "page_exit",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 180718,
+      "timestamp": "2025-05-19T18:13:40.646Z",
+      "storedAt": "2025-05-19T18:13:40.732Z"
+    },
+    {
+      "eventType": "time_marker",
+      "sessionId": "mv_1rmwqjhujvcihoii994298_1747678239928",
+      "restaurantId": "sababa-falafel",
+      "timeSpent": 181789,
+      "timestamp": "2025-05-19T18:13:41.717Z",
+      "storedAt": "2025-05-19T18:13:41.735Z"
     }
   ]
 }

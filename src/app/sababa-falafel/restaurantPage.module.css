@@ -338,7 +338,109 @@
   .backLink:hover {
     color: #c1522e;
   }
+
+  .dashboardLink {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #5c6738;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+  }
   
+  .dashboardLink:hover {
+    background-color: #4a5429;
+  }
+  
+  /* Add these modal styles before the responsive adjustments section */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    padding: 20px;
+  }
+  
+  .modalContent {
+    background-color: white;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 85vh;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+  }
+  
+  .modalImageContainer {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 12px 12px 0 0;
+  }
+  
+  .modalImage {
+    width: 100%;
+    display: block;
+    object-fit: contain;
+    max-height: 50vh;
+  }
+  
+  .modalDetails {
+    padding: 1.5rem;
+    flex-shrink: 0;
+  }
+  
+  .modalTitle {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem;
+  }
+  
+  .modalDescription {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+  
+  .modalPrice {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #c1522e;
+  }
+  
+  .closeButton {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+  }
+  
+  .closeButton:hover {
+    background-color: white;
+    transform: scale(1.1);
+  }
   /* Responsive adjustments */
   @media (max-width: 768px) {
     .menuGrid {

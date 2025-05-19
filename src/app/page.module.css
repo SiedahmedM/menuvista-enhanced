@@ -2,7 +2,7 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
-    background-color: #fdfcf9
+    background-color: #fdfcf9;
     
   }
   
@@ -96,7 +96,7 @@
     font-weight: 600;
   }
 
-  /* .logoContainer {
+  .logoContainer {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -107,4 +107,4 @@
   .logoIcon {
     width: 40px;
     height: 40px;
-  } */
+  }

@@ -1,11 +1,249 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './restaurantPage.module.css';
 import Link from 'next/link';
+import MenuVistaAdvancedTracking from '../analytics/advancedTracking';
 
 export default function SababaFalafelPage() {
   const [activeTab, setActiveTab] = useState('Lunch');
+  const [selectedItem, setSelectedItem] = useState(null);
   
+  useEffect(() => {
+    // Initialize analytics with restaurant ID
+    console.log('Initializing analytics once');
+    MenuVistaAdvancedTracking.init('sababa-falafel');
+    
+    // Clean up on component unmount
+    return () => {
+      if (MenuVistaAdvancedTracking.currentViewItem) {
+        MenuVistaAdvancedTracking.trackItemViewEnd(MenuVistaAdvancedTracking.currentViewItem);
+      }
+    };
+  }, []);
+
+  // Function to handle menu item click
+  const handleItemClick = (item) => {
+    setSelectedItem(item);
+    // Track item click in analytics
+    MenuVistaAdvancedTracking.trackItemClick(item.id, activeTab);
+  };
+
+  // Function to close the modal
+  const closeModal = () => {
+    setSelectedItem(null);
+  };
+
+  // Menu Item Modal Component
+  const MenuItemModal = ({ item, onClose }) => {
+    if (!item) return null;
+    
+    return (
+      <div className={styles.modalOverlay} onClick={onClose}>
+        <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+          <button className={styles.closeButton} onClick={onClose}>×</button>
+          <div className={styles.modalImageContainer}>
+            <img src={item.image} alt={item.name} className={styles.modalImage} />
+          </div>
+          <div className={styles.modalDetails}>
+            <h2 className={styles.modalTitle}>{item.name}</h2>
+            <p className={styles.modalDescription}>{item.description}</p>
+            <p className={styles.modalPrice}>{item.price}</p>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  // Create menu items data objects for each tab
+  const lunchItems = [
+    {
+      id: 'falafel-bowl',
+      name: 'Falafel Bowl',
+      description: 'Fresh falafel with hummus, tahini, and pita',
+      price: '$12',
+      image: '/falafel-bowl.jpg'
+    },
+    {
+      id: 'chicken-bowl',
+      name: 'Chicken Bowl',
+      description: 'Marinated chicken with rice and salad',
+      price: '$14',
+      image: '/chicken-bowl.jpg'
+    },
+    {
+      id: 'falafel-on-jerusalem-bread',
+      name: 'Falafel on Jerusalem Bread',
+      description: 'Crispy falafel in fresh bread with tahini and vegetables',
+      price: '$14',
+      image: '/falafel-on-jerusalem-bread.jpg'
+    },
+    {
+      id: 'falafel-with-fried-veggies',
+      name: 'Falafel With Fried Veggies',
+      description: 'Golden falafel in pita with fried vegetables and tahini sauce',
+      price: '$15',
+      image: '/falafel-with-fried-veggies.jpg'
+    },
+    {
+      id: 'fire-bowl',
+      name: 'Fire Bowl',
+      description: 'Spicy beef over yellow rice with fresh vegetables and tahini',
+      price: '$17',
+      image: '/fire-bowl.jpg'
+    },
+    {
+      id: 'ribeye-bowl',
+      name: 'Ribeye Bowl',
+      description: 'Tender ribeye strips over yellow rice with fresh vegetables and tahini',
+      price: '$16',
+      image: '/ribeye-bowl.jpg'
+    },
+    {
+      id: 'ribeye-pita',
+      name: 'Ribeye Pita',
+      description: 'Juicy ribeye in soft pita with fresh vegetables and tahini sauce',
+      price: '$15',
+      image: '/ribeye-pita.jpg'
+    }
+  ];
+
+  const appetizerItems = [
+    {
+      id: 'hummus',
+      name: 'Hummus',
+      description: 'Creamy chickpea dip with olive oil and pita',
+      price: '$16',
+      image: '/hummus.jpg'
+    },
+    {
+      id: 'fettah-with-ribeye',
+      name: 'Fettah With Ribeye',
+      description: 'Creamy hummus topped with tender ribeye and toasted pine nuts',
+      price: '$18',
+      image: '/fettah-with-ribeye.jpg'
+    },
+    {
+      id: 'fettah',
+      name: 'Fettah',
+      description: 'Traditional hummus topped with pine nuts and fresh herbs',
+      price: '$16',
+      image: '/fettah.jpg'
+    },
+    {
+      id: 'french-fries',
+      name: 'French Fries',
+      description: 'Crispy golden fries served with ketchup and garlic sauce',
+      price: '$6',
+      image: '/french-fries.jpg'
+    },
+    {
+      id: 'fried-veggies-8oz',
+      name: 'Fried Veggies 8oz',
+      description: 'Crispy cauliflower with fried potatoes and roasted eggplant',
+      price: '$9',
+      image: '/fried-veggies-8oz.jpg'
+    },
+    {
+      id: 'half-hummus-half-foul',
+      name: 'Half Hummus Half Foul',
+      description: 'A split plate of hummus and fava bean dip',
+      price: '$10',
+      image: '/half-hummus-half-foul.jpg'
+    },
+    {
+      id: '6-piece-falafel',
+      name: '6 Piece Falafel',
+      description: 'Six freshly fried falafel balls with tahini sauce',
+      price: '$8',
+      image: '/6-piece-falafel.jpg'
+    },
+    {
+      id: 'pita-chips',
+      name: 'Pita Chips',
+      description: 'Crispy pita chips seasoned with herbs',
+      price: '$5',
+      image: '/pita-chips.jpg'
+    }
+  ];
+
+  const dinnerItems = [
+    {
+      id: 'family-pack',
+      name: 'Family Pack',
+      description: 'Assorted dishes perfect for sharing with family',
+      price: '$32',
+      image: '/family-pack.jpg'
+    },
+    {
+      id: 'premium-family-pack',
+      name: 'Premium Family Pack',
+      description: 'Seasonal vegetables lightly fried in olive oil',
+      price: '$38',
+      image: '/premium-family-pack.jpg'
+    },
+    {
+      id: 'dinner-falafel-bowl',
+      name: 'Falafel Bowl',
+      description: 'Fresh falafel with hummus, tahini, and pita',
+      price: '$12',
+      image: '/falafel-bowl.jpg'
+    },
+    {
+      id: 'dinner-ribeye-bowl',
+      name: 'Ribeye Bowl',
+      description: 'Tender ribeye strips over yellow rice with fresh vegetables and tahini',
+      price: '$16',
+      image: '/ribeye-bowl.jpg'
+    }
+  ];
+
+  const drinksItems = [
+    {
+      id: 'hibiscus-lemonade',
+      name: 'Hibiscus Lemonade',
+      description: 'Refreshing hibiscus-infused lemonade',
+      price: '$4',
+      image: '/hibiscus-lemonade.jpg'
+    },
+    {
+      id: 'baklava',
+      name: 'Baklava',
+      description: 'Sweet pastry with layers of nuts and honey',
+      price: '$6',
+      image: '/baklava.jpg'
+    },
+    {
+      id: 'peach-crumble',
+      name: 'Peach Crumble',
+      description: 'Sweet peach dessert with a golden buttery crumble topping',
+      price: '$8',
+      image: '/peach-crumble.jpg'
+    },
+    {
+      id: 'rice-pudding',
+      name: 'Rice Pudding',
+      description: 'Creamy rice pudding with cinnamon and a hint of vanilla',
+      price: '$7',
+      image: '/rice-pudding.jpg'
+    }
+  ];
+
+  // Get the current items based on active tab
+  const getCurrentItems = () => {
+    switch(activeTab) {
+      case 'Lunch':
+        return lunchItems;
+      case 'Appetizers':
+        return appetizerItems;
+      case 'Dinner':
+        return dinnerItems;
+      case 'Drinks':
+        return drinksItems;
+      default:
+        return [];
+    }
+  };
+
   return (
     <div className={styles.container}>
       {/* Fixed Buttons */}
@@ -34,6 +272,7 @@ export default function SababaFalafelPage() {
           className={styles.coverImage}
         />
       </div>
+      
       {/* Restaurant name */}
       <h1 className={styles.restaurantName}>Sababa Falafel</h1>
       
@@ -80,278 +319,27 @@ export default function SababaFalafelPage() {
            activeTab} Menu
         </h2>
         
-        {/* LUNCH MENU */}
-        {activeTab === 'Lunch' && (
-          <div className={styles.menuGrid}>
-            <div className={styles.menuCard}>
+        {/* Menu Grid - using the data objects */}
+        <div className={styles.menuGrid}>
+          {getCurrentItems().map(item => (
+            <div 
+              className={styles.menuCard} 
+              key={item.id}
+              data-item-id={item.id}
+              data-category={activeTab}
+              onClick={() => handleItemClick(item)}
+            >
               <div className={styles.menuImageContainer}>
-                <img src="/falafel-bowl.jpg" alt="Falafel Bowl" className={styles.menuCardImage} />
+                <img src={item.image} alt={item.name} className={styles.menuCardImage} />
               </div>
               <div className={styles.menuCardContent}>
-                <h3 className={styles.menuCardName}>Falafel Bowl</h3>
-                <p className={styles.menuCardDescription}>Fresh falafel with hummus, tahini, and pita</p>
-                <p className={styles.menuCardPrice}>$12</p>
+                <h3 className={styles.menuCardName}>{item.name}</h3>
+                <p className={styles.menuCardDescription}>{item.description}</p>
+                <p className={styles.menuCardPrice}>{item.price}</p>
               </div>
             </div>
-            
-            <div className={styles.menuCard}>
-              <div className={styles.menuImageContainer}>
-                <img src="/chicken-bowl.jpg" alt="Chicken Bowl" className={styles.menuCardImage} />
-              </div>
-              <div className={styles.menuCardContent}>
-                <h3 className={styles.menuCardName}>Chicken Bowl</h3>
-                <p className={styles.menuCardDescription}>Marinated chicken with rice and salad</p>
-                <p className={styles.menuCardPrice}>$14</p>
-              </div>
-            </div>
-
-            <div className={styles.menuCard}>
-              <div className={styles.menuImageContainer}>
-                <img src="/falafel-on-jerusalem-bread.jpg" alt="Falafel on Jerusalem Bread" className={styles.menuCardImage} />
-              </div>
-              <div className={styles.menuCardContent}>
-                <h3 className={styles.menuCardName}>Falafel on Jerusalem Bread</h3>
-                <p className={styles.menuCardDescription}>Crispy falafel in fresh bread with tahini and vegetables</p>
-                <p className={styles.menuCardPrice}>$14</p>
-              </div>
-            </div>
-
-            <div className={styles.menuCard}>
-              <div className={styles.menuImageContainer}>
-                <img src="/falafel-with-fried-veggies.jpg" alt="Falafel With Fried Veggies" className={styles.menuCardImage} />
-              </div>
-              <div className={styles.menuCardContent}>
-                <h3 className={styles.menuCardName}>Falafel With Fried Veggies</h3>
-                <p className={styles.menuCardDescription}>Golden falafel in pita with fried vegetables and tahini sauce</p>
-                <p className={styles.menuCardPrice}>$15</p>
-              </div>
-            </div>
-
-            <div className={styles.menuCard}>
-              <div className={styles.menuImageContainer}>
-                <img src="/fire-bowl.jpg" alt="Fire Bowl" className={styles.menuCardImage} />
-              </div>
-              <div className={styles.menuCardContent}>
-                <h3 className={styles.menuCardName}>Fire Bowl</h3>
-                <p className={styles.menuCardDescription}>Spicy beef over yellow rice with fresh vegetables and tahini</p>
-                <p className={styles.menuCardPrice}>$17</p>
-              </div>
-            </div>
-
-            <div className={styles.menuCard}>
-              <div className={styles.menuImageContainer}>
-                <img src="/ribeye-bowl.jpg" alt="Ribeye Bowl" className={styles.menuCardImage} />
-              </div>
-              <div className={styles.menuCardContent}>
-                <h3 className={styles.menuCardName}>Ribeye Bowl</h3>
-                <p className={styles.menuCardDescription}>Tender ribeye strips over yellow rice with fresh vegetables and tahini</p>
-                <p className={styles.menuCardPrice}>$16</p>
-              </div>
-            </div>
-
-            <div className={styles.menuCard}>
-              <div className={styles.menuImageContainer}>
-                <img src="/ribeye-pita.jpg" alt="Ribeye Pita" className={styles.menuCardImage} />
-              </div>
-              <div className={styles.menuCardContent}>
-                <h3 className={styles.menuCardName}>Ribeye Pita</h3>
-                <p className={styles.menuCardDescription}>Juicy ribeye in soft pita with fresh vegetables and tahini sauce</p>
-                <p className={styles.menuCardPrice}>$15</p>
-              </div>
-            </div>
-          </div>
-        )}
-        
-        {/* APPETIZERS & SIDES MENU */}
-        {activeTab === 'Appetizers' && (
-          <div className={styles.menuGrid}>
-            <div className={styles.menuCard}>
-              <div className={styles.menuImageContainer}>
-                <img src="/hummus.jpg" alt="Hummus" className={styles.menuCardImage} />
-              </div>
-              <div className={styles.menuCardContent}>
-                <h3 className={styles.menuCardName}>Hummus</h3>
-                <p className={styles.menuCardDescription}>Creamy chickpea dip with olive oil and pita</p>
-                <p className={styles.menuCardPrice}>$16</p>
-              </div>
-            </div>
-            
-            <div className={styles.menuCard}>
-              <div className={styles.menuImageContainer}>
-                <img src="/fettah-with-ribeye.jpg" alt="Fettah With Ribeye" className={styles.menuCardImage} />
-              </div>
-              <div className={styles.menuCardContent}>
-                <h3 className={styles.menuCardName}>Fettah With Ribeye</h3>
-                <p className={styles.menuCardDescription}>Creamy hummus topped with tender ribeye and toasted pine nuts</p>
-                <p className={styles.menuCardPrice}>$18</p>
-              </div>
-            </div>
-
-            <div className={styles.menuCard}>
-              <div className={styles.menuImageContainer}>
-                <img src="/fettah.jpg" alt="Fettah" className={styles.menuCardImage} />
-              </div>
-              <div className={styles.menuCardContent}>
-                <h3 className={styles.menuCardName}>Fettah</h3>
-                <p className={styles.menuCardDescription}>Traditional hummus topped with pine nuts and fresh herbs</p>
-                <p className={styles.menuCardPrice}>$16</p>
-              </div>
-            </div>
-
-            <div className={styles.menuCard}>
-              <div className={styles.menuImageContainer}>
-                <img src="/french-fries.jpg" alt="French Fries" className={styles.menuCardImage} />
-              </div>
-              <div className={styles.menuCardContent}>
-                <h3 className={styles.menuCardName}>French Fries</h3>
-                <p className={styles.menuCardDescription}>Crispy golden fries served with ketchup and garlic sauce</p>
-                <p className={styles.menuCardPrice}>$6</p>
-              </div>
-            </div>
-
-            <div className={styles.menuCard}>
-              <div className={styles.menuImageContainer}>
-                <img src="/fried-veggies-8oz.jpg" alt="Fried Veggies 8oz" className={styles.menuCardImage} />
-              </div>
-              <div className={styles.menuCardContent}>
-                <h3 className={styles.menuCardName}>Fried Veggies 8oz</h3>
-                <p className={styles.menuCardDescription}>Crispy cauliflower with fried potatoes and roasted eggplant</p>
-                <p className={styles.menuCardPrice}>$9</p>
-              </div>
-            </div>
-            
-            <div className={styles.menuCard}>
-              <div className={styles.menuImageContainer}>
-                <img src="/half-hummus-half-foul.jpg" alt="Half Hummus Half Foul" className={styles.menuCardImage} />
-              </div>
-              <div className={styles.menuCardContent}>
-                <h3 className={styles.menuCardName}>Half Hummus Half Foul</h3>
-                <p className={styles.menuCardDescription}>A split plate of hummus and fava bean dip</p>
-                <p className={styles.menuCardPrice}>$10</p>
-              </div>
-            </div>
-
-            <div className={styles.menuCard}>
-              <div className={styles.menuImageContainer}>
-                <img src="/6-piece-falafel.jpg" alt="6 Piece Falafel" className={styles.menuCardImage} />
-              </div>
-              <div className={styles.menuCardContent}>
-                <h3 className={styles.menuCardName}>6 Piece Falafel</h3>
-                <p className={styles.menuCardDescription}>Six freshly fried falafel balls with tahini sauce</p>
-                <p className={styles.menuCardPrice}>$8</p>
-              </div>
-            </div>
-            
-            <div className={styles.menuCard}>
-              <div className={styles.menuImageContainer}>
-                <img src="/pita-chips.jpg" alt="Pita Chips" className={styles.menuCardImage} />
-              </div>
-              <div className={styles.menuCardContent}>                                                                                                   
-                <h3 className={styles.menuCardName}>Pita Chips</h3>
-                <p className={styles.menuCardDescription}>Crispy pita chips seasoned with herbs</p>
-                <p className={styles.menuCardPrice}>$5</p>
-              </div>
-            </div>
-          </div>
-        )}
-        
-        {/* DINNER MENU */}
-        {activeTab === 'Dinner' && (
-          <div className={styles.menuGrid}>            
-            <div className={styles.menuCard}>
-              <div className={styles.menuImageContainer}>
-                <img src="/family-pack.jpg" alt="Family Pack" className={styles.menuCardImage} />
-              </div>
-              <div className={styles.menuCardContent}>
-                <h3 className={styles.menuCardName}>Family Pack</h3>
-                <p className={styles.menuCardDescription}>Assorted dishes perfect for sharing with family</p>
-                <p className={styles.menuCardPrice}>$32</p>
-              </div>
-            </div>
-            
-            <div className={styles.menuCard}>
-              <div className={styles.menuImageContainer}>
-                <img src="/premium-family-pack.jpg" alt="Premium Family Pack" className={styles.menuCardImage} />
-              </div>
-              <div className={styles.menuCardContent}>
-                <h3 className={styles.menuCardName}>Premium Family Pack</h3>
-                <p className={styles.menuCardDescription}>Seasonal vegetables lightly fried in olive oil</p>
-                <p className={styles.menuCardPrice}>$38</p>
-              </div>
-            </div>
-            
-            <div className={styles.menuCard}>
-              <div className={styles.menuImageContainer}>
-                <img src="/falafel-bowl.jpg" alt="Falafel Bowl" className={styles.menuCardImage} />
-              </div>
-              <div className={styles.menuCardContent}>
-                <h3 className={styles.menuCardName}>Falafel Bowl</h3>
-                <p className={styles.menuCardDescription}>Fresh falafel with hummus, tahini, and pita</p>
-                <p className={styles.menuCardPrice}>$12</p>
-              </div>
-            </div>
-            
-            <div className={styles.menuCard}>
-              <div className={styles.menuImageContainer}>
-                <img src="/ribeye-bowl.jpg" alt="Ribeye Bowl" className={styles.menuCardImage} />
-              </div>
-              <div className={styles.menuCardContent}>
-                <h3 className={styles.menuCardName}>Ribeye Bowl</h3>
-                <p className={styles.menuCardDescription}>Tender ribeye strips over yellow rice with fresh vegetables and tahini</p>
-                <p className={styles.menuCardPrice}>$16</p>
-              </div>
-            </div>
-          </div>
-        )}
-        
-        {/* DRINKS & DESSERTS MENU */}
-        {activeTab === 'Drinks' && (
-          <div className={styles.menuGrid}>
-            <div className={styles.menuCard}>
-              <div className={styles.menuImageContainer}>
-                <img src="/hibiscus-lemonade.jpg" alt="Hibiscus Lemonade" className={styles.menuCardImage} />
-              </div>
-              <div className={styles.menuCardContent}>
-                <h3 className={styles.menuCardName}>Hibiscus Lemonade</h3>
-                <p className={styles.menuCardDescription}>Refreshing hibiscus-infused lemonade</p>
-                <p className={styles.menuCardPrice}>$4</p>
-              </div>
-            </div>
-            
-            <div className={styles.menuCard}>
-              <div className={styles.menuImageContainer}>
-                <img src="/baklava.jpg" alt="Baklava" className={styles.menuCardImage} />
-              </div>
-              <div className={styles.menuCardContent}>
-                <h3 className={styles.menuCardName}>Baklava</h3>
-                <p className={styles.menuCardDescription}>Sweet pastry with layers of nuts and honey</p>
-                <p className={styles.menuCardPrice}>$6</p>
-              </div>
-            </div>
-
-            <div className={styles.menuCard}>
-              <div className={styles.menuImageContainer}>
-                <img src="/peach-crumble.jpg" alt="Peach Crumble" className={styles.menuCardImage} />
-              </div>
-              <div className={styles.menuCardContent}>
-                <h3 className={styles.menuCardName}>Peach Crumble</h3>
-                <p className={styles.menuCardDescription}>Sweet peach dessert with a golden buttery crumble topping</p>
-                <p className={styles.menuCardPrice}>$8</p>
-              </div>
-            </div>
-
-            <div className={styles.menuCard}>
-              <div className={styles.menuImageContainer}>
-                <img src="/rice-pudding.jpg" alt="Rice Pudding" className={styles.menuCardImage} />
-              </div>
-              <div className={styles.menuCardContent}>
-                <h3 className={styles.menuCardName}>Rice Pudding</h3>
-                <p className={styles.menuCardDescription}>Creamy rice pudding with cinnamon and a hint of vanilla</p>
-                <p className={styles.menuCardPrice}>$7</p>
-              </div>
-            </div>
-          </div>
-        )}
+          ))}
+        </div>
       </div>
       
       {/* Footer */}
@@ -363,8 +351,22 @@ export default function SababaFalafelPage() {
         </div>
         <div className={styles.hours}>Open 11:00 AM - 10:00 PM</div>
       </div>
+
+      <div className="mt-4 mb-8">
+        <Link 
+          href={`/dashboard?restaurant=sababa-falafel`} 
+          className={styles.dashboardLink || "text-blue-600 hover:underline"}
+        >
+          View Analytics Dashboard
+        </Link>
+      </div>
       
       <Link href="/" className={styles.backLink}>← Back to all restaurants</Link>
+      
+      {/* Menu Item Modal */}
+      {selectedItem && (
+        <MenuItemModal item={selectedItem} onClose={closeModal} />
+      )}
     </div>
   );
 }

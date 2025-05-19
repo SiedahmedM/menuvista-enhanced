@@ -1,7 +1,6 @@
 # MenuVista Implementation Plan
 
-Follow these steps to implement the fixes from the copy project to the original MenuVista project:
-
+Steps to implement the fixes from the copy project to the original MenuVista project:
 ## 1. Fix Package Dependencies
 
 Update your `package.json` file:

@@ -1,1 +1,46 @@
-{}
+{
+  "sababa-falafel": [
+    {
+      "itemId": "falafel-bowl",
+      "cost": 4.5,
+      "margin": 62.5,
+      "priority": "high"
+    },
+    {
+      "itemId": "chicken-bowl",
+      "cost": 3.5,
+      "margin": 75,
+      "priority": "medium"
+    },
+    {
+      "itemId": "falafel-on-jerusalem-bread",
+      "cost": 2.5,
+      "margin": 82.1,
+      "priority": "medium"
+    },
+    {
+      "itemId": "falafel-with-fried-veggies",
+      "cost": 2.5,
+      "margin": 83.3,
+      "priority": "medium"
+    },
+    {
+      "itemId": "fire-bowl",
+      "cost": 5.5,
+      "margin": 67.6,
+      "priority": "medium"
+    },
+    {
+      "itemId": "ribeye-bowl",
+      "cost": 6.5,
+      "margin": 59.4,
+      "priority": "medium"
+    },
+    {
+      "itemId": "ribeye-pita",
+      "cost": 3.5,
+      "margin": 76.7,
+      "priority": "medium"
+    }
+  ]
+}

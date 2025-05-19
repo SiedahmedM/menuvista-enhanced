@@ -41,8 +41,19 @@ export async function POST(request) {
       }
     }
     
-    // Continue with regular processing if no valid cache or not a summary request
-    if (!menuItems || !menuLayout) {
+    // If this is just a summary request and we have no cache, return empty data
+    if (fetchSummaryOnly && (!menuItems || !menuLayout)) {
+      return new Response(JSON.stringify({
+        projectedImpact: "0.00",
+        recommendations: []
+      }), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+    
+    // For non-summary requests, ensure we have the required data
+    if (!fetchSummaryOnly && (!menuItems || !menuLayout)) {
       return new Response(JSON.stringify({ error: 'Missing required data' }), {
         status: 400,
         headers: { 'Content-Type': 'application/json' }
@@ -62,8 +73,9 @@ export async function POST(request) {
     }
     
     // If margin data exists, enhance the menuItems with it
+    let enhancedMenuItems = menuItems;
     if (marginData.length > 0) {
-      menuItems = menuItems.map(item => {
+      enhancedMenuItems = menuItems.map(item => {
         const marginInfo = marginData.find(m => m.itemId === item.id);
         if (marginInfo) {
           return {
@@ -81,7 +93,7 @@ export async function POST(request) {
     const events = getEventsForRestaurant(restaurantId);
     
     // Process the data to get key metrics
-    const itemMetrics = processItemMetrics(events, menuItems);
+    const itemMetrics = processItemMetrics(events, enhancedMenuItems);
     
     // Determine optimal positions
     const optimizedLayout = optimizeMenuLayout(itemMetrics, menuLayout);

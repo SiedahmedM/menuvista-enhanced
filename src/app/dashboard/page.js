@@ -29,9 +29,11 @@ export default function DashboardPage() {
     async function fetchDashboardData() {
       try {
         // Fetch all necessary data in parallel
-        const [analyticsResponse, marginResponse] = await Promise.all([
+        const [analyticsResponse, marginResponse, menuItemsResponse, menuLayoutResponse] = await Promise.all([
           fetch(`/api/analytics/dashboard?restaurant=${restaurantId}`),
-          fetch(`/api/menu-optimization/margin-data?restaurant=${restaurantId}`)
+          fetch(`/api/menu-optimization/margin-data?restaurant=${restaurantId}`),
+          fetch(`/api/menu-items?restaurant=${restaurantId}`),
+          fetch(`/api/menu-items/layout?restaurant=${restaurantId}`)
         ]);
 
         if (!analyticsResponse.ok) {
@@ -51,6 +53,13 @@ export default function DashboardPage() {
           }
         }
 
+        // Try to fetch menu data
+        let menuItems = [], menuLayout = [];
+        if (menuItemsResponse.ok && menuLayoutResponse.ok) {
+          menuItems = await menuItemsResponse.json();
+          menuLayout = await menuLayoutResponse.json();
+        }
+
         // Try to fetch optimization data if available
         try {
           const optimizationResponse = await fetch('/api/menu-optimization/optimize-layout', {
@@ -61,7 +70,9 @@ export default function DashboardPage() {
             body: JSON.stringify({
               restaurantId,
               // We only need a simplified version for dashboard summary
-              fetchSummaryOnly: true
+              fetchSummaryOnly: true,
+              menuItems,
+              menuLayout
             })
           });
 

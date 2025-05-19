@@ -7,11 +7,22 @@ import MenuVistaAdvancedTracking from '../analytics/advancedTracking';
 export default function SababaFalafelPage() {
   const [activeTab, setActiveTab] = useState('Lunch');
   const [selectedItem, setSelectedItem] = useState(null);
+  const [language, setLanguage] = useState('en'); // Default language is English
+  const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
   
   useEffect(() => {
     // Initialize analytics with restaurant ID
     console.log('Initializing analytics once');
     MenuVistaAdvancedTracking.init('sababa-falafel');
+    
+    // Track language selection in analytics
+    if (language !== 'en') {
+      MenuVistaAdvancedTracking.logEvent('language_change', {
+        from: 'en',
+        to: language,
+        timestamp: new Date()
+      });
+    }
     
     // Clean up on component unmount
     return () => {
@@ -19,7 +30,7 @@ export default function SababaFalafelPage() {
         MenuVistaAdvancedTracking.trackItemViewEnd(MenuVistaAdvancedTracking.currentViewItem);
       }
     };
-  }, []);
+  }, [language]);
 
   // Function to handle menu item click
   const handleItemClick = (item) => {
@@ -33,25 +44,76 @@ export default function SababaFalafelPage() {
     setSelectedItem(null);
   };
 
+  // Toggle language dropdown
+  const toggleLanguageDropdown = () => {
+    setShowLanguageDropdown(!showLanguageDropdown);
+  };
+
+  // Handle language selection
+  const handleLanguageChange = (lang) => {
+    setLanguage(lang);
+    setShowLanguageDropdown(false);
+  };
+
   // Menu Item Modal Component
   const MenuItemModal = ({ item, onClose }) => {
     if (!item) return null;
+    
+    // Get the correct item data based on language
+    const itemName = language === 'ar' ? (item.nameAr || item.name) : item.name;
+    const itemDescription = language === 'ar' ? (item.descriptionAr || item.description) : item.description;
     
     return (
       <div className={styles.modalOverlay} onClick={onClose}>
         <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
           <button className={styles.closeButton} onClick={onClose}>×</button>
           <div className={styles.modalImageContainer}>
-            <img src={item.image} alt={item.name} className={styles.modalImage} />
+            <img src={item.image} alt={itemName} className={styles.modalImage} />
           </div>
-          <div className={styles.modalDetails}>
-            <h2 className={styles.modalTitle}>{item.name}</h2>
-            <p className={styles.modalDescription}>{item.description}</p>
+          <div className={styles.modalDetails} dir={language === 'ar' ? 'rtl' : 'ltr'}>
+            <h2 className={styles.modalTitle}>{itemName}</h2>
+            <p className={styles.modalDescription}>{itemDescription}</p>
             <p className={styles.modalPrice}>{item.price}</p>
           </div>
         </div>
       </div>
     );
+  };
+  
+  // Translations for UI elements
+  const translations = {
+    en: {
+      restaurantName: 'Sababa Falafel',
+      tabs: {
+        Lunch: 'Lunch',
+        Appetizers: 'Appetizers & Sides',
+        Dinner: 'Dinner',
+        Drinks: 'Drinks & Desserts'
+      },
+      menuTitle: 'Menu',
+      orderNow: 'Order Now',
+      call: 'Call',
+      tags: ['Middle Eastern', 'Vegetarian', 'Family-Friendly'],
+      hours: 'Open 11:00 AM - 10:00 PM',
+      backLink: '← Back to all restaurants',
+      viewDashboard: 'View Analytics Dashboard'
+    },
+    ar: {
+      restaurantName: 'صبابا فلافل',
+      tabs: {
+        Lunch: 'الغداء',
+        Appetizers: 'المقبلات والجانبية',
+        Dinner: 'العشاء',
+        Drinks: 'المشروبات والحلويات'
+      },
+      menuTitle: 'القائمة',
+      orderNow: 'اطلب الآن',
+      call: 'اتصل',
+      tags: ['شرق أوسطي', 'نباتي', 'مناسب للعائلة'],
+      hours: 'مفتوح ١١:٠٠ ص - ١٠:٠٠ م',
+      backLink: '← العودة إلى جميع المطاعم',
+      viewDashboard: 'عرض لوحة التحليلات'
+    }
   };
 
   // Create menu items data objects for each tab
@@ -60,6 +122,8 @@ export default function SababaFalafelPage() {
       id: 'falafel-bowl',
       name: 'Falafel Bowl',
       description: 'Fresh falafel with hummus, tahini, and pita',
+      nameAr: 'طبق الفلافل',
+      descriptionAr: 'فلافل طازجة مع حمص، طحينة، وخبز بيتا',
       price: '$12',
       image: '/falafel-bowl.jpg'
     },
@@ -67,6 +131,8 @@ export default function SababaFalafelPage() {
       id: 'chicken-bowl',
       name: 'Chicken Bowl',
       description: 'Marinated chicken with rice and salad',
+      nameAr: 'طبق الدجاج',
+      descriptionAr: 'دجاج متبل مع أرز وسلطة',
       price: '$14',
       image: '/chicken-bowl.jpg'
     },
@@ -74,6 +140,8 @@ export default function SababaFalafelPage() {
       id: 'falafel-on-jerusalem-bread',
       name: 'Falafel on Jerusalem Bread',
       description: 'Crispy falafel in fresh bread with tahini and vegetables',
+      nameAr: 'فلافل على خبز القدس',
+      descriptionAr: 'فلافل مقرمشة في خبز طازج مع طحينة وخضروات',
       price: '$14',
       image: '/falafel-on-jerusalem-bread.jpg'
     },
@@ -81,6 +149,8 @@ export default function SababaFalafelPage() {
       id: 'falafel-with-fried-veggies',
       name: 'Falafel With Fried Veggies',
       description: 'Golden falafel in pita with fried vegetables and tahini sauce',
+      nameAr: 'فلافل مع خضروات مقلية',
+      descriptionAr: 'فلافل ذهبية في خبز بيتا مع خضروات مقلية وصلصة طحينة',
       price: '$15',
       image: '/falafel-with-fried-veggies.jpg'
     },
@@ -88,6 +158,8 @@ export default function SababaFalafelPage() {
       id: 'fire-bowl',
       name: 'Fire Bowl',
       description: 'Spicy beef over yellow rice with fresh vegetables and tahini',
+      nameAr: 'طبق النار',
+      descriptionAr: 'لحم بقري حار على أرز أصفر مع خضروات طازجة وطحينة',
       price: '$17',
       image: '/fire-bowl.jpg'
     },
@@ -95,6 +167,8 @@ export default function SababaFalafelPage() {
       id: 'ribeye-bowl',
       name: 'Ribeye Bowl',
       description: 'Tender ribeye strips over yellow rice with fresh vegetables and tahini',
+      nameAr: 'طبق ريب آي',
+      descriptionAr: 'شرائح لحم ريب آي طرية على أرز أصفر مع خضروات طازجة وطحينة',
       price: '$16',
       image: '/ribeye-bowl.jpg'
     },
@@ -102,6 +176,8 @@ export default function SababaFalafelPage() {
       id: 'ribeye-pita',
       name: 'Ribeye Pita',
       description: 'Juicy ribeye in soft pita with fresh vegetables and tahini sauce',
+      nameAr: 'ريب آي بيتا',
+      descriptionAr: 'لحم ريب آي عصير في خبز بيتا ناعم مع خضروات طازجة وصلصة طحينة',
       price: '$15',
       image: '/ribeye-pita.jpg'
     }
@@ -112,6 +188,8 @@ export default function SababaFalafelPage() {
       id: 'hummus',
       name: 'Hummus',
       description: 'Creamy chickpea dip with olive oil and pita',
+      nameAr: 'حمص',
+      descriptionAr: 'حمص كريمي مع زيت زيتون وخبز بيتا',
       price: '$16',
       image: '/hummus.jpg'
     },
@@ -119,6 +197,8 @@ export default function SababaFalafelPage() {
       id: 'fettah-with-ribeye',
       name: 'Fettah With Ribeye',
       description: 'Creamy hummus topped with tender ribeye and toasted pine nuts',
+      nameAr: 'فتة مع ريب آي',
+      descriptionAr: 'حمص كريمي مع لحم ريب آي طري وصنوبر محمص',
       price: '$18',
       image: '/fettah-with-ribeye.jpg'
     },
@@ -126,6 +206,8 @@ export default function SababaFalafelPage() {
       id: 'fettah',
       name: 'Fettah',
       description: 'Traditional hummus topped with pine nuts and fresh herbs',
+      nameAr: 'فتة',
+      descriptionAr: 'حمص تقليدي مع صنوبر وأعشاب طازجة',
       price: '$16',
       image: '/fettah.jpg'
     },
@@ -133,6 +215,8 @@ export default function SababaFalafelPage() {
       id: 'french-fries',
       name: 'French Fries',
       description: 'Crispy golden fries served with ketchup and garlic sauce',
+      nameAr: 'بطاطا مقلية',
+      descriptionAr: 'بطاطا مقلية مقرمشة تقدم مع كاتشب وصلصة ثوم',
       price: '$6',
       image: '/french-fries.jpg'
     },
@@ -140,6 +224,8 @@ export default function SababaFalafelPage() {
       id: 'fried-veggies-8oz',
       name: 'Fried Veggies 8oz',
       description: 'Crispy cauliflower with fried potatoes and roasted eggplant',
+      nameAr: 'خضروات مقلية ٨ أونصات',
+      descriptionAr: 'قرنبيط مقرمش مع بطاطا مقلية وباذنجان مشوي',
       price: '$9',
       image: '/fried-veggies-8oz.jpg'
     },
@@ -147,6 +233,8 @@ export default function SababaFalafelPage() {
       id: 'half-hummus-half-foul',
       name: 'Half Hummus Half Foul',
       description: 'A split plate of hummus and fava bean dip',
+      nameAr: 'نصف حمص نصف فول',
+      descriptionAr: 'طبق مقسم من الحمص والفول المدمس',
       price: '$10',
       image: '/half-hummus-half-foul.jpg'
     },
@@ -154,6 +242,8 @@ export default function SababaFalafelPage() {
       id: '6-piece-falafel',
       name: '6 Piece Falafel',
       description: 'Six freshly fried falafel balls with tahini sauce',
+      nameAr: '٦ قطع فلافل',
+      descriptionAr: 'ست كرات فلافل مقلية طازجة مع صلصة طحينة',
       price: '$8',
       image: '/6-piece-falafel.jpg'
     },
@@ -161,6 +251,8 @@ export default function SababaFalafelPage() {
       id: 'pita-chips',
       name: 'Pita Chips',
       description: 'Crispy pita chips seasoned with herbs',
+      nameAr: 'رقائق بيتا',
+      descriptionAr: 'رقائق بيتا مقرمشة متبلة بالأعشاب',
       price: '$5',
       image: '/pita-chips.jpg'
     }
@@ -171,6 +263,8 @@ export default function SababaFalafelPage() {
       id: 'family-pack',
       name: 'Family Pack',
       description: 'Assorted dishes perfect for sharing with family',
+      nameAr: 'وجبة عائلية',
+      descriptionAr: 'تشكيلة من الأطباق المثالية للمشاركة مع العائلة',
       price: '$32',
       image: '/family-pack.jpg'
     },
@@ -178,6 +272,8 @@ export default function SababaFalafelPage() {
       id: 'premium-family-pack',
       name: 'Premium Family Pack',
       description: 'Seasonal vegetables lightly fried in olive oil',
+      nameAr: 'وجبة عائلية فاخرة',
+      descriptionAr: 'خضروات موسمية مقلية قليلاً في زيت الزيتون',
       price: '$38',
       image: '/premium-family-pack.jpg'
     },
@@ -185,6 +281,8 @@ export default function SababaFalafelPage() {
       id: 'dinner-falafel-bowl',
       name: 'Falafel Bowl',
       description: 'Fresh falafel with hummus, tahini, and pita',
+      nameAr: 'طبق الفلافل',
+      descriptionAr: 'فلافل طازجة مع حمص، طحينة، وخبز بيتا',
       price: '$12',
       image: '/falafel-bowl.jpg'
     },
@@ -192,6 +290,8 @@ export default function SababaFalafelPage() {
       id: 'dinner-ribeye-bowl',
       name: 'Ribeye Bowl',
       description: 'Tender ribeye strips over yellow rice with fresh vegetables and tahini',
+      nameAr: 'طبق ريب آي',
+      descriptionAr: 'شرائح لحم ريب آي طرية على أرز أصفر مع خضروات طازجة وطحينة',
       price: '$16',
       image: '/ribeye-bowl.jpg'
     }
@@ -202,6 +302,8 @@ export default function SababaFalafelPage() {
       id: 'hibiscus-lemonade',
       name: 'Hibiscus Lemonade',
       description: 'Refreshing hibiscus-infused lemonade',
+      nameAr: 'ليموناضة بالكركديه',
+      descriptionAr: 'ليموناضة منعشة مع نكهة الكركديه',
       price: '$4',
       image: '/hibiscus-lemonade.jpg'
     },
@@ -209,6 +311,8 @@ export default function SababaFalafelPage() {
       id: 'baklava',
       name: 'Baklava',
       description: 'Sweet pastry with layers of nuts and honey',
+      nameAr: 'بقلاوة',
+      descriptionAr: 'حلوى عربية محلاة بطبقات من المكسرات والعسل',
       price: '$6',
       image: '/baklava.jpg'
     },
@@ -216,6 +320,8 @@ export default function SababaFalafelPage() {
       id: 'peach-crumble',
       name: 'Peach Crumble',
       description: 'Sweet peach dessert with a golden buttery crumble topping',
+      nameAr: 'كرامبل الخوخ',
+      descriptionAr: 'حلوى الخوخ الحلوة مع طبقة من فتات الزبدة الذهبية',
       price: '$8',
       image: '/peach-crumble.jpg'
     },
@@ -223,6 +329,8 @@ export default function SababaFalafelPage() {
       id: 'rice-pudding',
       name: 'Rice Pudding',
       description: 'Creamy rice pudding with cinnamon and a hint of vanilla',
+      nameAr: 'أرز باللبن',
+      descriptionAr: 'أرز باللبن كريمي مع القرفة ونكهة الفانيليا',
       price: '$7',
       image: '/rice-pudding.jpg'
     }
@@ -245,7 +353,34 @@ export default function SababaFalafelPage() {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} dir={language === 'ar' ? 'rtl' : 'ltr'}>
+      {/* Language Selector */}
+      <div className={styles.languageSelectorContainer}>
+        <button 
+          className={styles.languageButton}
+          onClick={toggleLanguageDropdown}
+          aria-label="Select language"
+        >
+          {language === 'en' ? 'English' : 'العربية'} <span className={styles.dropdownArrow}>▼</span>
+        </button>
+        {showLanguageDropdown && (
+          <div className={styles.languageDropdown}>
+            <button 
+              className={`${styles.languageOption} ${language === 'en' ? styles.activeLanguage : ''}`}
+              onClick={() => handleLanguageChange('en')}
+            >
+              English
+            </button>
+            <button 
+              className={`${styles.languageOption} ${language === 'ar' ? styles.activeLanguage : ''}`}
+              onClick={() => handleLanguageChange('ar')}
+            >
+              العربية
+            </button>
+          </div>
+        )}
+      </div>
+
       {/* Fixed Buttons */}
       <div className={styles.fixedButtonsContainer}>
         <a 
@@ -254,13 +389,13 @@ export default function SababaFalafelPage() {
           rel="noopener noreferrer"
           className={styles.fixedOrderButton}
         >
-          Order Now
+          {translations[language].orderNow}
         </a>
         <button 
           className={styles.fixedCallButton}
           onClick={() => window.open('tel:+1-714-242-8977')}
         >
-          Call
+          {translations[language].call}
         </button>
       </div>
 
@@ -268,19 +403,19 @@ export default function SababaFalafelPage() {
       <div className={styles.heroImage}>
         <img 
           src="/sababa-falafel.jpg"
-          alt="Sababa Falafel Restaurant" 
+          alt={translations[language].restaurantName} 
           className={styles.coverImage}
         />
       </div>
       
       {/* Restaurant name */}
-      <h1 className={styles.restaurantName}>Sababa Falafel</h1>
+      <h1 className={styles.restaurantName}>{translations[language].restaurantName}</h1>
       
       {/* Tags */}
       <div className={styles.tagContainer}>
-        <span className={styles.tag}>Middle Eastern</span>
-        <span className={styles.tag}>Vegetarian</span>
-        <span className={styles.tag}>Family-Friendly</span>
+        {translations[language].tags.map((tag, index) => (
+          <span key={index} className={styles.tag}>{tag}</span>
+        ))}
       </div>
       
       {/* Menu tabs */}
@@ -289,56 +424,62 @@ export default function SababaFalafelPage() {
           className={`${styles.tabButton} ${activeTab === 'Appetizers' ? styles.activeTab : ''}`}
           onClick={() => setActiveTab('Appetizers')}
         >
-          Appetizers & Sides
+          {translations[language].tabs.Appetizers}
         </button>
         <button 
           className={`${styles.tabButton} ${activeTab === 'Lunch' ? styles.activeTab : ''}`}
           onClick={() => setActiveTab('Lunch')}
         >
-          Lunch
+          {translations[language].tabs.Lunch}
         </button>
         <button 
           className={`${styles.tabButton} ${activeTab === 'Dinner' ? styles.activeTab : ''}`}
           onClick={() => setActiveTab('Dinner')}
         >
-          Dinner
+          {translations[language].tabs.Dinner}
         </button>
         <button 
           className={`${styles.tabButton} ${activeTab === 'Drinks' ? styles.activeTab : ''}`}
           onClick={() => setActiveTab('Drinks')}
         >
-          Drinks & Desserts
+          {translations[language].tabs.Drinks}
         </button>
       </div>
       
       {/* Menu content */}
       <div className={styles.menuContent}>
         <h2 className={styles.menuHeading}>
-          {activeTab === 'Drinks' ? 'Drinks & Desserts' : 
-           activeTab === 'Appetizers' ? 'Appetizers & Sides' : 
-           activeTab} Menu
+          {activeTab === 'Drinks' ? translations[language].tabs.Drinks : 
+           activeTab === 'Appetizers' ? translations[language].tabs.Appetizers : 
+           translations[language].tabs[activeTab]} {translations[language].menuTitle}
         </h2>
         
         {/* Menu Grid - using the data objects */}
         <div className={styles.menuGrid}>
-          {getCurrentItems().map(item => (
-            <div 
-              className={styles.menuCard} 
-              key={item.id}
-              data-item-id={item.id}
-              data-category={activeTab}
-              onClick={() => handleItemClick(item)}
-            >
-              <div className={styles.menuImageContainer}>
-                <img src={item.image} alt={item.name} className={styles.menuCardImage} />
+          {getCurrentItems().map(item => {
+            // Get the correct item data based on language
+            const itemName = language === 'ar' ? (item.nameAr || item.name) : item.name;
+            const itemDescription = language === 'ar' ? (item.descriptionAr || item.description) : item.description;
+            
+            return (
+              <div 
+                className={styles.menuCard} 
+                key={item.id}
+                data-item-id={item.id}
+                data-category={activeTab}
+                onClick={() => handleItemClick(item)}
+              >
+                <div className={styles.menuImageContainer}>
+                  <img src={item.image} alt={itemName} className={styles.menuCardImage} />
+                </div>
+                <div className={styles.menuCardContent}>
+                  <h3 className={styles.menuCardName}>{itemName}</h3>
+                  <p className={styles.menuCardDescription}>{itemDescription}</p>
+                  <p className={styles.menuCardPrice}>{item.price}</p>
+                </div>
               </div>
-              <div className={styles.menuCardContent}>
-                <h3 className={styles.menuCardName}>{item.name}</h3>
-                <p className={styles.menuCardDescription}>{item.description}</p>
-                <p className={styles.menuCardPrice}>{item.price}</p>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
       
@@ -349,7 +490,7 @@ export default function SababaFalafelPage() {
           <a href="#" className={styles.socialIcon}>t</a>
           <a href="#" className={styles.socialIcon}>i</a>
         </div>
-        <div className={styles.hours}>Open 11:00 AM - 10:00 PM</div>
+        <div className={styles.hours}>{translations[language].hours}</div>
       </div>
 
       <div className="mt-4 mb-8">
@@ -357,11 +498,11 @@ export default function SababaFalafelPage() {
           href={`/dashboard?restaurant=sababa-falafel`} 
           className={styles.dashboardLink || "text-blue-600 hover:underline"}
         >
-          View Analytics Dashboard
+          {translations[language].viewDashboard}
         </Link>
       </div>
       
-      <Link href="/" className={styles.backLink}>← Back to all restaurants</Link>
+      <Link href="/" className={styles.backLink}>{translations[language].backLink}</Link>
       
       {/* Menu Item Modal */}
       {selectedItem && (

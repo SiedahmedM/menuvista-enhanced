@@ -558,25 +558,197 @@
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
+
+  .languageSelectorContainer {
+    top: 10px;
+    left: 10px;
+  }
+
+  .fixedButtonsContainer {
+    top: 10px;
+    right: 10px;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .languageButton,
+  .fixedOrderButton,
+  .fixedCallButton {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .menuTabs {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.75rem 0;
+  }
+
+  .tabButton {
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    flex: 1;
+    min-width: auto;
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem 0;
+    text-align: center;
+  }
+
+  .socialIcons {
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .hours {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
 }
 
 @media (max-width: 500px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+
+  .languageSelectorContainer {
+    position: static;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .fixedButtonsContainer {
+    position: static;
+    justify-content: center;
+    margin-bottom: 1rem;
+    flex-direction: row;
+    gap: 0.75rem;
+  }
+
+  .languageButton,
+  .fixedOrderButton,
+  .fixedCallButton {
+    flex: 1;
+    max-width: 120px;
+    padding: 0.75rem 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .heroImage {
+    margin-top: 1rem;
+    height: 250px;
+  }
+
+  .restaurantName {
+    font-size: 2rem;
+    margin: 1rem 0;
+  }
+
+  .menuGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .menuCard {
+    margin-bottom: 1rem;
+  }
+
+  .menuCardContent {
+    padding: 1.25rem;
+  }
+
+  .menuCardName {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .menuCardDescription {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+  }
+
+  .menuCardPrice {
+    font-size: 1.2rem;
+  }
+  
   .actionButtons {
     flex-direction: column;
     align-items: center;
+    gap: 0.75rem;
   }
   
   .primaryButton, .secondaryButton {
     width: 100%;
-    max-width: 300px;
-    margin-bottom: 0.5rem;
+    max-width: 280px;
+    padding: 1rem;
+    font-size: 1rem;
   }
   
   .menuTabs {
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem 0;
+    position: static;
+    background: none;
   }
   
   .tabButton {
-    padding: 0.75rem 1.5rem;
+    padding: 1rem;
+    font-size: 1rem;
+    width: 100%;
+    border-radius: 8px;
+    background-color: white;
+    border: 1px solid #eee;
+    margin-bottom: 0.25rem;
+  }
+
+  .tabButton:hover,
+  .activeTab {
+    background-color: #f8f9fa;
+  }
+
+  .activeTab::after {
+    display: none;
+  }
+
+  .footer {
+    padding: 2rem 0;
+    gap: 1.5rem;
+  }
+
+  .socialIcons {
+    gap: 2rem;
+  }
+
+  .socialIcon {
+    width: 44px;
+    height: 44px;
+    font-size: 1.1rem;
+  }
+
+  .hours {
+    font-size: 1rem;
+    padding: 0 1rem;
+    text-align: center;
+  }
+
+  .backLink {
+    margin: 2rem 0;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  .viewOptionsButton {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    margin: 1rem 0;
+    display: block;
+    text-align: center;
   }
 }

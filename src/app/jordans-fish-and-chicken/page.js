@@ -13,8 +13,22 @@ export default function JordansFishAndChickenPage() {
     console.log('Initializing analytics once');
     MenuVistaAdvancedTracking.init('jordans-fish-and-chicken');
     
+    // Handle scroll-based opacity for fixed buttons
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const buttonsContainer = document.querySelector(`.${styles.fixedButtonsContainer}`);
+      if (buttonsContainer) {
+        // Start reducing opacity after 100px scroll, minimum opacity 0.6
+        const opacity = Math.max(0.6, 1 - (scrollY / 800));
+        buttonsContainer.style.opacity = opacity;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    
     // Clean up on component unmount
     return () => {
+      window.removeEventListener('scroll', handleScroll);
       if (MenuVistaAdvancedTracking.currentViewItem) {
         MenuVistaAdvancedTracking.trackItemViewEnd(MenuVistaAdvancedTracking.currentViewItem);
       }

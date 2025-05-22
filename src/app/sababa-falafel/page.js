@@ -24,8 +24,22 @@ export default function SababaFalafelPage() {
       });
     }
     
+    // Handle scroll-based opacity for fixed buttons
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const buttonsContainer = document.querySelector(`.${styles.fixedButtonsContainer}`);
+      if (buttonsContainer) {
+        // Start reducing opacity after 100px scroll, minimum opacity 0.6
+        const opacity = Math.max(0.6, 1 - (scrollY / 800));
+        buttonsContainer.style.opacity = opacity;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    
     // Clean up on component unmount
     return () => {
+      window.removeEventListener('scroll', handleScroll);
       if (MenuVistaAdvancedTracking.currentViewItem) {
         MenuVistaAdvancedTracking.trackItemViewEnd(MenuVistaAdvancedTracking.currentViewItem);
       }
@@ -96,9 +110,7 @@ export default function SababaFalafelPage() {
       tags: ['Middle Eastern', 'Vegetarian', 'Family-Friendly'],
       hours: 'Mon-Sat 10am-10pm • Sun 10am-8pm',
       backLink: '← Back to all restaurants',
-      viewDashboard: 'View Analytics Dashboard',
-      viewAltLayout: 'View Alternative Layout',
-      layoutInfo: 'Original Layout (3 items per row)'
+      viewDashboard: 'View Analytics Dashboard'
     },
     ar: {
       restaurantName: 'صبابا فلافل',
@@ -114,9 +126,7 @@ export default function SababaFalafelPage() {
       tags: ['شرق أوسطي', 'نباتي', 'مناسب للعائلة'],
       hours: 'الاثنين-السبت ١٠ص-١٠م • الأحد ١٠ص-٨م',
       backLink: '← العودة إلى جميع المطاعم',
-      viewDashboard: 'عرض لوحة التحليلات',
-      viewAltLayout: 'عرض التخطيط البديل',
-      layoutInfo: 'التخطيط الأصلي (٣ عناصر في كل صف)'
+      viewDashboard: 'عرض لوحة التحليلات'
     }
   };
 
@@ -415,20 +425,6 @@ export default function SababaFalafelPage() {
       {/* Restaurant name */}
       <h1 className={styles.restaurantName}>{translations[language].restaurantName}</h1>
 
-      {/* Layout info */}
-      <div style={{ textAlign: 'center', margin: '0.5rem 0 1rem', color: '#666' }}>
-        {translations[language].layoutInfo}
-      </div>
-
-      {/* View Alternative Layout Button */}
-      <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
-        <Link 
-          href="/sababa-falafel-alt-layout" 
-          className={styles.viewOptionsButton || "inline-block px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700"}
-        >
-          {translations[language].viewAltLayout}
-        </Link>
-      </div>
       
       {/* Tags */}
       <div className={styles.tagContainer}>

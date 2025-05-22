@@ -47,6 +47,15 @@ export default function Home() {
           />
           <h3>Aleppo Kitchen</h3>
         </Link>
+
+        <Link href="/jordans-fish-and-chicken" className={styles.restaurantCard}>
+          <img
+            src="/jordans-fish-and-chicken.jpg"
+            alt="Jordan's Fish and Chicken"
+            className={styles.restaurantImage}
+          />
+          <h3>Jordan's Fish and Chicken</h3>
+        </Link>
       </div>
     </div>
   );

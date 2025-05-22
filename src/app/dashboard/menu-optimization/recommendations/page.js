@@ -1,10 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
-export default function MenuRecommendationsPage() {
+function MenuRecommendationsContent() {
   const [recommendations, setRecommendations] = useState([]);
   const [menuItems, setMenuItems] = useState([]);
   const [currentLayout, setCurrentLayout] = useState(null);
@@ -228,5 +228,13 @@ export default function MenuRecommendationsPage() {
         </Link>
       </div>
     </div>
+  );
+}
+
+export default function MenuRecommendationsPage() {
+  return (
+    <Suspense fallback={<div className="p-8">Loading recommendations...</div>}>
+      <MenuRecommendationsContent />
+    </Suspense>
   );
 }

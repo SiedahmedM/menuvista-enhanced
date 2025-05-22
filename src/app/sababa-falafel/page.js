@@ -94,7 +94,7 @@ export default function SababaFalafelPage() {
       orderNow: 'Order Now',
       call: 'Call',
       tags: ['Middle Eastern', 'Vegetarian', 'Family-Friendly'],
-      hours: 'Open 11:00 AM - 10:00 PM',
+      hours: 'Mon-Sat 10am-10pm • Sun 10am-8pm',
       backLink: '← Back to all restaurants',
       viewDashboard: 'View Analytics Dashboard',
       viewAltLayout: 'View Alternative Layout',
@@ -112,7 +112,7 @@ export default function SababaFalafelPage() {
       orderNow: 'اطلب الآن',
       call: 'اتصل',
       tags: ['شرق أوسطي', 'نباتي', 'مناسب للعائلة'],
-      hours: 'مفتوح ١١:٠٠ ص - ١٠:٠٠ م',
+      hours: 'الاثنين-السبت ١٠ص-١٠م • الأحد ١٠ص-٨م',
       backLink: '← العودة إلى جميع المطاعم',
       viewDashboard: 'عرض لوحة التحليلات',
       viewAltLayout: 'عرض التخطيط البديل',
@@ -505,9 +505,28 @@ export default function SababaFalafelPage() {
       {/* Footer */}
       <div className={styles.footer}>
         <div className={styles.socialIcons}>
-          <a href="#" className={styles.socialIcon}>f</a>
-          <a href="#" className={styles.socialIcon}>t</a>
-          <a href="#" className={styles.socialIcon}>i</a>
+          <a 
+            href="https://www.instagram.com/sababafalafelshop/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className={styles.socialIcon}
+            aria-label="Follow us on Instagram"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+          <a 
+            href="https://www.tiktok.com/@sababafalafelshop?lang=en" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className={styles.socialIcon}
+            aria-label="Follow us on TikTok"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19.321 5.562a5.122 5.122 0 0 1-.443-.258 6.228 6.228 0 0 1-1.137-.966c-.849-.966-1.212-2.068-1.212-3.338h-3.025v14.05c0 1.577-1.281 2.858-2.858 2.858s-2.858-1.281-2.858-2.858 1.281-2.858 2.858-2.858c.297 0 .583.046.853.131V9.328a6.83 6.83 0 0 0-.853-.055c-3.762 0-6.808 3.046-6.808 6.808s3.046 6.808 6.808 6.808 6.808-3.046 6.808-6.808V8.515a9.15 9.15 0 0 0 5.372 1.706v-3.95a5.122 5.122 0 0 1-3.505-2.709z"/>
+            </svg>
+          </a>
         </div>
         <div className={styles.hours}>{translations[language].hours}</div>
       </div>

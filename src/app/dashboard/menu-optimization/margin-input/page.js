@@ -1,10 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
-export default function MarginInputPage() {
+function MarginInputContent() {
   const [menuItems, setMenuItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -313,5 +313,13 @@ export default function MarginInputPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function MarginInputPage() {
+  return (
+    <Suspense fallback={<div className="p-8">Loading...</div>}>
+      <MarginInputContent />
+    </Suspense>
   );
 }

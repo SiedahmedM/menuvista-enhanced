@@ -3,11 +3,11 @@
 
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
-export default function AttentionAnalysisPage() {
+function AttentionAnalysisContent() {
   const [attentionData, setAttentionData] = useState(null);
   const [menuItems, setMenuItems] = useState([]);
   const [actionableInsights, setActionableInsights] = useState([]);
@@ -576,5 +576,13 @@ export default function AttentionAnalysisPage() {
         </Link>
       </div>
     </div>
+  );
+}
+
+export default function AttentionAnalysisPage() {
+  return (
+    <Suspense fallback={<div className="p-8">Loading attention analysis...</div>}>
+      <AttentionAnalysisContent />
+    </Suspense>
   );
 }
